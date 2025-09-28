@@ -1,0 +1,324 @@
+IandP/
+├─ __pycache__/
+│  └─ app.cpython-311.pyc
+├─ apps/
+│  ├─ scraper/
+│  │  ├─ README.md
+│  │  ├─ requirements.txt
+│  │  └─ scrape.py
+│  └─ web/
+│     ├─ .next/
+│     │  ├─ cache/
+│     │  │  ├─ swc/
+│     │  │  │  └─ plugins/
+│     │  │  │     └─ v7_windows_x86_64_0.106.15/
+│     │  │  └─ webpack/
+│     │  │     ├─ client-development/
+│     │  │     │  ├─ 0.pack.gz
+│     │  │     │  ├─ 1.pack.gz
+│     │  │     │  ├─ 10.pack.gz
+│     │  │     │  ├─ 11.pack.gz
+│     │  │     │  ├─ 12.pack.gz
+│     │  │     │  ├─ 13.pack.gz
+│     │  │     │  ├─ 14.pack.gz
+│     │  │     │  ├─ 2.pack.gz
+│     │  │     │  ├─ 3.pack.gz
+│     │  │     │  ├─ 4.pack.gz
+│     │  │     │  ├─ 5.pack.gz
+│     │  │     │  ├─ 6.pack.gz
+│     │  │     │  ├─ 7.pack.gz
+│     │  │     │  ├─ 8.pack.gz
+│     │  │     │  ├─ 9.pack.gz
+│     │  │     │  ├─ index.pack.gz
+│     │  │     │  └─ index.pack.gz.old
+│     │  │     ├─ client-development-fallback/
+│     │  │     │  ├─ 0.pack.gz
+│     │  │     │  ├─ 1.pack.gz
+│     │  │     │  ├─ 2.pack.gz
+│     │  │     │  ├─ index.pack.gz
+│     │  │     │  └─ index.pack.gz.old
+│     │  │     ├─ edge-server-development/
+│     │  │     │  ├─ 0.pack.gz
+│     │  │     │  ├─ 1.pack.gz
+│     │  │     │  ├─ 2.pack.gz
+│     │  │     │  ├─ 3.pack.gz
+│     │  │     │  ├─ index.pack.gz
+│     │  │     │  └─ index.pack.gz.old
+│     │  │     └─ server-development/
+│     │  │        ├─ 0.pack.gz
+│     │  │        ├─ 1.pack.gz
+│     │  │        ├─ 10.pack.gz
+│     │  │        ├─ 11.pack.gz
+│     │  │        ├─ 12.pack.gz
+│     │  │        ├─ 13.pack.gz
+│     │  │        ├─ 14.pack.gz
+│     │  │        ├─ 2.pack.gz
+│     │  │        ├─ 3.pack.gz
+│     │  │        ├─ 4.pack.gz
+│     │  │        ├─ 5.pack.gz
+│     │  │        ├─ 6.pack.gz
+│     │  │        ├─ 7.pack.gz
+│     │  │        ├─ 8.pack.gz
+│     │  │        ├─ 9.pack.gz
+│     │  │        ├─ index.pack.gz
+│     │  │        └─ index.pack.gz.old
+│     │  ├─ server/
+│     │  │  ├─ pages/
+│     │  │  │  ├─ api/
+│     │  │  │  │  └─ generate-prompt.js
+│     │  │  │  ├─ _app.js
+│     │  │  │  ├─ _document.js
+│     │  │  │  ├─ _error.js
+│     │  │  │  └─ index.js
+│     │  │  ├─ static/
+│     │  │  │  └─ webpack/
+│     │  │  │     └─ 633457081244afec._.hot-update.json
+│     │  │  ├─ vendor-chunks/
+│     │  │  │  ├─ @supabase.js
+│     │  │  │  ├─ @swc.js
+│     │  │  │  ├─ cookie.js
+│     │  │  │  ├─ lucide-react.js
+│     │  │  │  ├─ next.js
+│     │  │  │  ├─ tr46.js
+│     │  │  │  ├─ webidl-conversions.js
+│     │  │  │  └─ whatwg-url.js
+│     │  │  ├─ _error.js
+│     │  │  ├─ edge-runtime-webpack.js
+│     │  │  ├─ interception-route-rewrite-manifest.js
+│     │  │  ├─ middleware-build-manifest.js
+│     │  │  ├─ middleware-manifest.json
+│     │  │  ├─ middleware-react-loadable-manifest.js
+│     │  │  ├─ middleware.js
+│     │  │  ├─ next-font-manifest.js
+│     │  │  ├─ next-font-manifest.json
+│     │  │  ├─ pages-manifest.json
+│     │  │  ├─ webpack-api-runtime.js
+│     │  │  └─ webpack-runtime.js
+│     │  ├─ static/
+│     │  │  ├─ chunks/
+│     │  │  │  ├─ pages/
+│     │  │  │  │  ├─ _app.js
+│     │  │  │  │  ├─ _error.js
+│     │  │  │  │  └─ index.js
+│     │  │  │  ├─ _error.js
+│     │  │  │  ├─ main.js
+│     │  │  │  ├─ polyfills.js
+│     │  │  │  ├─ react-refresh.js
+│     │  │  │  └─ webpack.js
+│     │  │  ├─ development/
+│     │  │  │  ├─ _buildManifest.js
+│     │  │  │  └─ _ssgManifest.js
+│     │  │  └─ webpack/
+│     │  │     ├─ 633457081244afec._.hot-update.json
+│     │  │     ├─ f80525310dfe326d.webpack.hot-update.json
+│     │  │     └─ webpack.f80525310dfe326d.hot-update.js
+│     │  ├─ build-manifest.json
+│     │  ├─ package.json
+│     │  ├─ react-loadable-manifest.json
+│     │  └─ trace
+│     ├─ components/
+│     │  ├─ AuthForm.js
+│     │  ├─ CopyButton.js
+│     │  ├─ Header.js
+│     │  ├─ Layout.js
+│     │  ├─ PromptActions.js
+│     │  └─ PromptCard.js
+│     ├─ data/
+│     │  └─ explore.js
+│     ├─ pages/
+│     │  ├─ api/
+│     │  │  ├─ favorite.js
+│     │  │  ├─ generate-prompt.js
+│     │  │  └─ rate-prompt.js
+│     │  ├─ _app.js
+│     │  ├─ explore.js
+│     │  ├─ history.js
+│     │  ├─ index.js
+│     │  └─ login.js
+│     ├─ public/
+│     │  └─ logo.svg
+│     ├─ styles/
+│     │  └─ globals.css
+│     ├─ _app.js
+│     ├─ .env.local
+│     ├─ jsconfig.json
+│     ├─ middleware.js
+│     ├─ next.config.js
+│     ├─ package.json
+│     ├─ postcss.config.js
+│     └─ tailwind.config.js
+├─ docs/
+│  ├─ api-spec.md
+│  ├─ architecture.md
+│  └─ roadmap.md
+├─ infra/
+│  ├─ github-actions/
+│  │  └─ scrape.yml
+│  ├─ README.md
+│  ├─ supabase-rate-limit.sql
+│  ├─ supabase-schema.sql
+│  └─ vercel.json
+├─ packages/
+│  ├─ api-client/
+│  │  ├─ index.js
+│  │  └─ package.json
+│  ├─ context/
+│  │  ├─ AuthContext.js
+│  │  └─ package.json
+│  ├─ prompt-model/
+│  │  ├─ index.js
+│  │  ├─ package.json
+│  │  └─ README.md
+│  ├─ supabase-client/
+│  │  ├─ index.js
+│  │  └─ package.json
+│  └─ ui/
+│     ├─ Card.js
+│     ├─ DarkButton.js
+│     ├─ GradientButton.js
+│     ├─ GradientHeading.js
+│     ├─ index.js
+│     └─ package.json
+├─ .dcignore
+├─ .gitignore
+├─ .windsurfrules
+├─ civitai_scraper.py
+├─ CLAUDE.md
+├─ favorite.js
+├─ GEMINI.md
+├─ generation_tool.md
+├─ lexica_scraper.py
+├─ package-lock.json
+├─ package.json
+├─ Plan.txt
+├─ README.md
+└─ scraping_list.md
+
+How it works
+
+apps/web → user-facing site (upload image, view prompt library).
+
+apps/scraper → your prompt crawler (runs on GitHub Actions, feeds Supabase DB).
+
+packages/prompt-model → handles the Hugging Face API call.
+
+packages/ui → shared UI components between apps.
+
+infra → your infrastructure config, DB schema, CI/CD.
+
+Gemini Code Assist can open roadmap.md and architecture.md and build each part step by step.
+
+
+📑 2. Example roadmap.md (you can copy this into docs/roadmap.md)
+
+# imagesandprompts Roadmap
+
+## Phase 1 – Core MVP (2–3 Days)
+- Next.js app with upload form.
+- API route calling Hugging Face CLIP Interrogator.
+- Display prompt + copy button.
+- Seed "Explore" page with 50 sample prompts.
+
+## Phase 2 – Prompt Library Expansion
+- Add Supabase DB and storage for prompts and images.
+- Implement user accounts (Supabase Auth).
+- Build Python scraper on GitHub Actions to pull public prompts into the DB.
+
+## Phase 3 – Community Features
+- Save upload history.
+- Implement prompt rating and favoriting.
+- Automatic style tags based on prompt content (e.g., Hollywood, Noir, B&W).
+- Add rate limits and a potential premium tier.
+
+## Phase 4 – Marketplace & Mobile
+- Prompt packs marketplace.
+- Mobile wrapper app.
+
+
+🎨 3. Branding & Design System
+
+### Logo Style Ideas
+The core idea is something simple, modern, and recognizable that combines the concepts of images and text. Some ideas include a camera lens with a pencil inside, or a chat bubble with a paintbrush. The format should be a scalable SVG with light and dark mode variants.
+
+### Color Palette & Theme
+The application uses a dual light/dark mode theme, configured in `tailwind.config.js` and implemented in the shared `ui` package.
+
+- **Primary Accent:** A bright `blue-purple-pink` gradient (`bg-ai-gradient`) is used for primary calls-to-action (`GradientButton`) and headings (`GradientHeading`) to evoke creativity.
+- **UI Theme:** The UI is built on Tailwind's `neutral` color scale for a clean, modern look.
+  - **Light Mode:** `bg-neutral-100` page background with `bg-neutral-50` for cards.
+  - **Dark Mode:** `bg-neutral-950` page background with `bg-neutral-900` for cards.
+
+-- ================================
+-- imagesandprompts Database Schema
+-- ================================
+
+-- Users table (Supabase Auth automatically manages auth.users)
+-- This is just to store extra profile info linked to auth.users
+create table if not exists public.users (
+  id uuid primary key references auth.users(id) on delete cascade,
+  username text unique,
+  created_at timestamp with time zone default now()
+);
+
+-- Prompts table (text prompt + metadata)
+create table if not exists public.prompts (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete set null,
+  prompt_text text not null,
+  style_tags text[],               -- array of style tags (e.g., {'Hollywood','B&W'})
+  source text,                     -- e.g. 'upload', 'scraper', 'manual'
+  created_at timestamp with time zone default now()
+);
+
+-- Images table (stores info about uploaded image + generated prompt id)
+create table if not exists public.images (
+  id bigserial primary key,
+  user_id uuid references public.users(id) on delete set null,
+  prompt_id bigint references public.prompts(id) on delete set null,
+  storage_path text not null,      -- path in Supabase storage bucket
+  original_filename text,
+  created_at timestamp with time zone default now()
+);
+
+-- Optional: Tags table for a normalised many-to-many relation
+create table if not exists public.tags (
+  id bigserial primary key,
+  tag_name text unique not null
+);
+
+create table if not exists public.prompt_tags (
+  prompt_id bigint references public.prompts(id) on delete cascade,
+  tag_id bigint references public.tags(id) on delete cascade,
+  primary key (prompt_id, tag_id)
+);
+
+-- Favorites table (many-to-many relation between users and prompts)
+create table if not exists public.prompt_favorites (
+  user_id uuid references auth.users(id) on delete cascade,
+  prompt_id bigint references public.prompts(id) on delete cascade,
+  primary key (user_id, prompt_id)
+);
+
+-- Bucket for image files
+-- (create a bucket called 'uploads' in Supabase Storage UI)
+
+-- ================================
+-- Suggested indexes
+-- ================================
+create index if not exists idx_prompts_text on public.prompts using gin (to_tsvector('english', prompt_text));
+create index if not exists idx_prompts_tags on public.prompts using gin (style_tags);
+
+
+How it works
+
+auth.users: Supabase manages basic user auth.
+
+public.users: Your extra profile info.
+
+public.prompts: Every prompt (either extracted from an image or scraped).
+
+public.images: Stores path to uploaded image + links to the prompt it produced.
+
+public.tags + public.prompt_tags: optional for advanced tag filtering.
+
+Indexes: speed up full-text search on prompt_text and tags.

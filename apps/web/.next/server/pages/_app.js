@@ -1,0 +1,271 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/_app";
+exports.ids = ["pages/_app"];
+exports.modules = {
+
+/***/ "./components/Header.js":
+/*!******************************!*\
+  !*** ./components/Header.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Header: () => (/* binding */ Header)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/image */ \"../../node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ \"../../node_modules/next/link.js\");\n/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ \"../../node_modules/next/router.js\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var context_AuthContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! context/AuthContext */ \"../../packages/context/AuthContext.js\");\n/* harmony import */ var supabase_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! supabase-client */ \"../../packages/supabase-client/index.js\");\n/* harmony import */ var ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ui */ \"../../packages/ui/index.js\");\n/* harmony import */ var _barrel_optimize_names_ChevronLeft_LogOut_lucide_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! __barrel_optimize__?names=ChevronLeft,LogOut!=!lucide-react */ \"__barrel_optimize__?names=ChevronLeft,LogOut!=!../../node_modules/lucide-react/dist/esm/lucide-react.js\");\n\n\n\n\n\n\n\n\nconst Header = ()=>{\n    const { user } = (0,context_AuthContext__WEBPACK_IMPORTED_MODULE_4__.useAuth)();\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"header\", {\n        className: \"bg-neutral-950 p-4 sticky top-0 z-10\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"nav\", {\n            className: \"max-w-7xl mx-auto flex items-center justify-between\",\n            children: [\n                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    className: \"flex items-center gap-4\",\n                    children: [\n                        router.pathname !== \"/\" && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(ui__WEBPACK_IMPORTED_MODULE_6__.DarkButton, {\n                            onClick: ()=>router.back(),\n                            className: \"!p-2\",\n                            \"aria-label\": \"Go back\",\n                            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_barrel_optimize_names_ChevronLeft_LogOut_lucide_react__WEBPACK_IMPORTED_MODULE_7__.ChevronLeft, {\n                                size: 18\n                            }, void 0, false, {\n                                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                lineNumber: 19,\n                                columnNumber: 15\n                            }, undefined)\n                        }, void 0, false, {\n                            fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                            lineNumber: 18,\n                            columnNumber: 13\n                        }, undefined),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                            className: \"flex items-center gap-4\",\n                            children: [\n                                router.pathname !== \"/\" && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(ui__WEBPACK_IMPORTED_MODULE_6__.DarkButton, {\n                                    onClick: ()=>router.back(),\n                                    className: \"!p-2\",\n                                    \"aria-label\": \"Go back\",\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_barrel_optimize_names_ChevronLeft_LogOut_lucide_react__WEBPACK_IMPORTED_MODULE_7__.ChevronLeft, {\n                                        size: 18\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                        lineNumber: 25,\n                                        columnNumber: 25\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                    lineNumber: 24,\n                                    columnNumber: 23\n                                }, undefined),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {\n                                    href: \"/\",\n                                    passHref: true,\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                                        className: \"flex items-center gap-3 cursor-pointer\",\n                                        children: [\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {\n                                                src: \"/logo.svg\",\n                                                alt: \"AI Prompt Finder Logo\",\n                                                width: 50,\n                                                height: 50\n                                            }, void 0, false, {\n                                                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                                lineNumber: 30,\n                                                columnNumber: 25\n                                            }, undefined),\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                                                className: \"font-semibold text-xl hidden sm:block\",\n                                                children: \"AI Prompt Finder\"\n                                            }, void 0, false, {\n                                                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                                lineNumber: 31,\n                                                columnNumber: 25\n                                            }, undefined)\n                                        ]\n                                    }, void 0, true, {\n                                        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                        lineNumber: 29,\n                                        columnNumber: 23\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                    lineNumber: 28,\n                                    columnNumber: 21\n                                }, undefined)\n                            ]\n                        }, void 0, true, {\n                            fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                            lineNumber: 22,\n                            columnNumber: 19\n                        }, undefined),\n                        \"        \"\n                    ]\n                }, void 0, true, {\n                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                    lineNumber: 16,\n                    columnNumber: 9\n                }, undefined),\n                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    className: \"flex items-center gap-4\",\n                    children: [\n                        user && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n                            children: [\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {\n                                    href: \"/explore\",\n                                    passHref: true,\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(ui__WEBPACK_IMPORTED_MODULE_6__.DarkButton, {\n                                        children: \"Explore\"\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                        lineNumber: 42,\n                                        columnNumber: 17\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                    lineNumber: 41,\n                                    columnNumber: 15\n                                }, undefined),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {\n                                    href: \"/history\",\n                                    passHref: true,\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(ui__WEBPACK_IMPORTED_MODULE_6__.DarkButton, {\n                                        children: \"My History\"\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                        lineNumber: 45,\n                                        columnNumber: 17\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                    lineNumber: 44,\n                                    columnNumber: 15\n                                }, undefined),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(ui__WEBPACK_IMPORTED_MODULE_6__.DarkButton, {\n                                    onClick: ()=>supabase_client__WEBPACK_IMPORTED_MODULE_5__.supabase.auth.signOut(),\n                                    className: \"!p-2\",\n                                    \"aria-label\": \"Sign Out\",\n                                    children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_barrel_optimize_names_ChevronLeft_LogOut_lucide_react__WEBPACK_IMPORTED_MODULE_7__.LogOut, {\n                                        size: 18\n                                    }, void 0, false, {\n                                        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                        lineNumber: 52,\n                                        columnNumber: 17\n                                    }, undefined)\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                    lineNumber: 47,\n                                    columnNumber: 15\n                                }, undefined)\n                            ]\n                        }, void 0, true),\n                        !user && router.pathname !== \"/login\" && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_link__WEBPACK_IMPORTED_MODULE_2___default()), {\n                            href: \"/login\",\n                            passHref: true,\n                            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(ui__WEBPACK_IMPORTED_MODULE_6__.GradientButton, {\n                                children: \"Login / Sign Up\"\n                            }, void 0, false, {\n                                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                                lineNumber: 58,\n                                columnNumber: 15\n                            }, undefined)\n                        }, void 0, false, {\n                            fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                            lineNumber: 57,\n                            columnNumber: 13\n                        }, undefined)\n                    ]\n                }, void 0, true, {\n                    fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n                    lineNumber: 38,\n                    columnNumber: 9\n                }, undefined)\n            ]\n        }, void 0, true, {\n            fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n            lineNumber: 15,\n            columnNumber: 7\n        }, undefined)\n    }, void 0, false, {\n        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Header.js\",\n        lineNumber: 14,\n        columnNumber: 5\n    }, undefined);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL0hlYWRlci5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7OztBQUErQjtBQUNGO0FBQ1c7QUFDTTtBQUNIO0FBQ0s7QUFDRztBQUU1QyxNQUFNUyxTQUFTO0lBQ3BCLE1BQU0sRUFBRUMsSUFBSSxFQUFFLEdBQUdQLDREQUFPQTtJQUN4QixNQUFNUSxTQUFTVCxzREFBU0E7SUFFeEIscUJBQ0UsOERBQUNVO1FBQU9DLFdBQVU7a0JBQ2hCLDRFQUFDQztZQUFJRCxXQUFVOzs4QkFDYiw4REFBQ0U7b0JBQUlGLFdBQVU7O3dCQUNaRixPQUFPSyxRQUFRLEtBQUsscUJBQ25CLDhEQUFDWCwwQ0FBVUE7NEJBQUNZLFNBQVMsSUFBTU4sT0FBT08sSUFBSTs0QkFBSUwsV0FBVTs0QkFBT00sY0FBVztzQ0FDcEUsNEVBQUNYLCtGQUFXQTtnQ0FBQ1ksTUFBTTs7Ozs7Ozs7Ozs7c0NBR2YsOERBQUNMOzRCQUFJRixXQUFVOztnQ0FDWkYsT0FBT0ssUUFBUSxLQUFLLHFCQUNuQiw4REFBQ1gsMENBQVVBO29DQUFDWSxTQUFTLElBQU1OLE9BQU9PLElBQUk7b0NBQUlMLFdBQVU7b0NBQU9NLGNBQVc7OENBQ3BFLDRFQUFDWCwrRkFBV0E7d0NBQUNZLE1BQU07Ozs7Ozs7Ozs7OzhDQUd2Qiw4REFBQ25CLGtEQUFJQTtvQ0FBQ29CLE1BQUs7b0NBQUlDLFFBQVE7OENBQ3JCLDRFQUFDUDt3Q0FBSUYsV0FBVTs7MERBQ2IsOERBQUNiLG1EQUFLQTtnREFBQ3VCLEtBQUk7Z0RBQVlDLEtBQUk7Z0RBQXdCQyxPQUFPO2dEQUFJQyxRQUFROzs7Ozs7MERBQ3RFLDhEQUFDQztnREFBS2QsV0FBVTswREFBd0M7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O3dCQUt4RDs7Ozs7Ozs4QkFFaEIsOERBQUNFO29CQUFJRixXQUFVOzt3QkFDWkgsc0JBQ0M7OzhDQUNFLDhEQUFDVCxrREFBSUE7b0NBQUNvQixNQUFLO29DQUFXQyxRQUFROzhDQUM1Qiw0RUFBQ2pCLDBDQUFVQTtrREFBQzs7Ozs7Ozs7Ozs7OENBRWQsOERBQUNKLGtEQUFJQTtvQ0FBQ29CLE1BQUs7b0NBQVdDLFFBQVE7OENBQzVCLDRFQUFDakIsMENBQVVBO2tEQUFDOzs7Ozs7Ozs7Ozs4Q0FFZCw4REFBQ0EsMENBQVVBO29DQUNUWSxTQUFTLElBQU1iLHFEQUFRQSxDQUFDd0IsSUFBSSxDQUFDQyxPQUFPO29DQUNwQ2hCLFdBQVU7b0NBQ1ZNLGNBQVc7OENBRVgsNEVBQUNaLDBGQUFNQTt3Q0FBQ2EsTUFBTTs7Ozs7Ozs7Ozs7Ozt3QkFJbkIsQ0FBQ1YsUUFBUUMsT0FBT0ssUUFBUSxLQUFLLDBCQUM1Qiw4REFBQ2Ysa0RBQUlBOzRCQUFDb0IsTUFBSzs0QkFBU0MsUUFBUTtzQ0FDMUIsNEVBQUNoQiw4Q0FBY0E7MENBQUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFPOUIsRUFBRSIsInNvdXJjZXMiOlsid2VicGFjazovL3dlYi8uL2NvbXBvbmVudHMvSGVhZGVyLmpzPzRkYmIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEltYWdlIGZyb20gXCJuZXh0L2ltYWdlXCI7XHJcbmltcG9ydCBMaW5rIGZyb20gXCJuZXh0L2xpbmtcIjtcclxuaW1wb3J0IHsgdXNlUm91dGVyIH0gZnJvbSBcIm5leHQvcm91dGVyXCI7XHJcbmltcG9ydCB7IHVzZUF1dGggfSBmcm9tIFwiY29udGV4dC9BdXRoQ29udGV4dFwiO1xyXG5pbXBvcnQgeyBzdXBhYmFzZSB9IGZyb20gXCJzdXBhYmFzZS1jbGllbnRcIjtcclxuaW1wb3J0IHsgRGFya0J1dHRvbiwgR3JhZGllbnRCdXR0b24gfSBmcm9tIFwidWlcIjtcclxuaW1wb3J0IHsgTG9nT3V0LCBDaGV2cm9uTGVmdCB9IGZyb20gXCJsdWNpZGUtcmVhY3RcIjtcclxuXHJcbmV4cG9ydCBjb25zdCBIZWFkZXIgPSAoKSA9PiB7XHJcbiAgY29uc3QgeyB1c2VyIH0gPSB1c2VBdXRoKCk7XHJcbiAgY29uc3Qgcm91dGVyID0gdXNlUm91dGVyKCk7XHJcblxyXG4gIHJldHVybiAoXHJcbiAgICA8aGVhZGVyIGNsYXNzTmFtZT1cImJnLW5ldXRyYWwtOTUwIHAtNCBzdGlja3kgdG9wLTAgei0xMFwiPlxyXG4gICAgICA8bmF2IGNsYXNzTmFtZT1cIm1heC13LTd4bCBteC1hdXRvIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxyXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTRcIj5cclxuICAgICAgICAgIHtyb3V0ZXIucGF0aG5hbWUgIT09IFwiL1wiICYmIChcclxuICAgICAgICAgICAgPERhcmtCdXR0b24gb25DbGljaz17KCkgPT4gcm91dGVyLmJhY2soKX0gY2xhc3NOYW1lPVwiIXAtMlwiIGFyaWEtbGFiZWw9XCJHbyBiYWNrXCI+XHJcbiAgICAgICAgICAgICAgPENoZXZyb25MZWZ0IHNpemU9ezE4fSAvPlxyXG4gICAgICAgICAgICA8L0RhcmtCdXR0b24+XHJcbiAgICAgICAgICApfVxyXG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00XCI+XHJcbiAgICAgICAgICAgICAgICAgICAge3JvdXRlci5wYXRobmFtZSAhPT0gXCIvXCIgJiYgKFxyXG4gICAgICAgICAgICAgICAgICAgICAgPERhcmtCdXR0b24gb25DbGljaz17KCkgPT4gcm91dGVyLmJhY2soKX0gY2xhc3NOYW1lPVwiIXAtMlwiIGFyaWEtbGFiZWw9XCJHbyBiYWNrXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxDaGV2cm9uTGVmdCBzaXplPXsxOH0gLz5cclxuICAgICAgICAgICAgICAgICAgICAgIDwvRGFya0J1dHRvbj5cclxuICAgICAgICAgICAgICAgICAgICApfVxyXG4gICAgICAgICAgICAgICAgICAgIDxMaW5rIGhyZWY9XCIvXCIgcGFzc0hyZWY+XHJcbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIGN1cnNvci1wb2ludGVyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxJbWFnZSBzcmM9XCIvbG9nby5zdmdcIiBhbHQ9XCJBSSBQcm9tcHQgRmluZGVyIExvZ29cIiB3aWR0aD17NTB9IGhlaWdodD17NTB9IC8+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZvbnQtc2VtaWJvbGQgdGV4dC14bCBoaWRkZW4gc206YmxvY2tcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICBBSSBQcm9tcHQgRmluZGVyXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cclxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgIDwvTGluaz5cclxuICAgICAgICAgICAgICAgICAgPC9kaXY+ICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxyXG4gICAgICAgICAge3VzZXIgJiYgKFxyXG4gICAgICAgICAgICA8PlxyXG4gICAgICAgICAgICAgIDxMaW5rIGhyZWY9XCIvZXhwbG9yZVwiIHBhc3NIcmVmPlxyXG4gICAgICAgICAgICAgICAgPERhcmtCdXR0b24+RXhwbG9yZTwvRGFya0J1dHRvbj5cclxuICAgICAgICAgICAgICA8L0xpbms+XHJcbiAgICAgICAgICAgICAgPExpbmsgaHJlZj1cIi9oaXN0b3J5XCIgcGFzc0hyZWY+XHJcbiAgICAgICAgICAgICAgICA8RGFya0J1dHRvbj5NeSBIaXN0b3J5PC9EYXJrQnV0dG9uPlxyXG4gICAgICAgICAgICAgIDwvTGluaz5cclxuICAgICAgICAgICAgICA8RGFya0J1dHRvblxyXG4gICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc3VwYWJhc2UuYXV0aC5zaWduT3V0KCl9XHJcbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCIhcC0yXCJcclxuICAgICAgICAgICAgICAgIGFyaWEtbGFiZWw9XCJTaWduIE91dFwiXHJcbiAgICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPExvZ091dCBzaXplPXsxOH0gLz5cclxuICAgICAgICAgICAgICA8L0RhcmtCdXR0b24+XHJcbiAgICAgICAgICAgIDwvPlxyXG4gICAgICAgICAgKX1cclxuICAgICAgICAgIHshdXNlciAmJiByb3V0ZXIucGF0aG5hbWUgIT09IFwiL2xvZ2luXCIgJiYgKFxyXG4gICAgICAgICAgICA8TGluayBocmVmPVwiL2xvZ2luXCIgcGFzc0hyZWY+XHJcbiAgICAgICAgICAgICAgPEdyYWRpZW50QnV0dG9uPkxvZ2luIC8gU2lnbiBVcDwvR3JhZGllbnRCdXR0b24+XHJcbiAgICAgICAgICAgIDwvTGluaz5cclxuICAgICAgICAgICl9XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgIDwvbmF2PlxyXG4gICAgPC9oZWFkZXI+XHJcbiAgKTtcclxufTsiXSwibmFtZXMiOlsiSW1hZ2UiLCJMaW5rIiwidXNlUm91dGVyIiwidXNlQXV0aCIsInN1cGFiYXNlIiwiRGFya0J1dHRvbiIsIkdyYWRpZW50QnV0dG9uIiwiTG9nT3V0IiwiQ2hldnJvbkxlZnQiLCJIZWFkZXIiLCJ1c2VyIiwicm91dGVyIiwiaGVhZGVyIiwiY2xhc3NOYW1lIiwibmF2IiwiZGl2IiwicGF0aG5hbWUiLCJvbkNsaWNrIiwiYmFjayIsImFyaWEtbGFiZWwiLCJzaXplIiwiaHJlZiIsInBhc3NIcmVmIiwic3JjIiwiYWx0Iiwid2lkdGgiLCJoZWlnaHQiLCJzcGFuIiwiYXV0aCIsInNpZ25PdXQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./components/Header.js\n");
+
+/***/ }),
+
+/***/ "./components/Layout.js":
+/*!******************************!*\
+  !*** ./components/Layout.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Layout: () => (/* binding */ Layout)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ \"./components/Header.js\");\n\n\nconst Layout = ({ children })=>{\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"min-h-screen bg-neutral-950 text-neutral-200\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_Header__WEBPACK_IMPORTED_MODULE_1__.Header, {}, void 0, false, {\n                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Layout.js\",\n                lineNumber: 6,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"main\", {\n                className: \"p-4 sm:p-6 lg:p-8\",\n                children: children\n            }, void 0, false, {\n                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Layout.js\",\n                lineNumber: 7,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\components\\\\Layout.js\",\n        lineNumber: 5,\n        columnNumber: 5\n    }, undefined);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL0xheW91dC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFrQztBQUUzQixNQUFNQyxTQUFTLENBQUMsRUFBRUMsUUFBUSxFQUFFO0lBQ2pDLHFCQUNFLDhEQUFDQztRQUFJQyxXQUFVOzswQkFDYiw4REFBQ0osMkNBQU1BOzs7OzswQkFDUCw4REFBQ0s7Z0JBQUtELFdBQVU7MEJBQ2JGOzs7Ozs7Ozs7Ozs7QUFJVCxFQUFFIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vd2ViLy4vY29tcG9uZW50cy9MYXlvdXQuanM/NTE1YyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBIZWFkZXIgfSBmcm9tIFwiLi9IZWFkZXJcIjtcclxuXHJcbmV4cG9ydCBjb25zdCBMYXlvdXQgPSAoeyBjaGlsZHJlbiB9KSA9PiB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGJnLW5ldXRyYWwtOTUwIHRleHQtbmV1dHJhbC0yMDBcIj5cclxuICAgICAgPEhlYWRlciAvPlxyXG4gICAgICA8bWFpbiBjbGFzc05hbWU9XCJwLTQgc206cC02IGxnOnAtOFwiPlxyXG4gICAgICAgIHtjaGlsZHJlbn1cclxuICAgICAgPC9tYWluPlxyXG4gICAgPC9kaXY+XHJcbiAgKTtcclxufTsiXSwibmFtZXMiOlsiSGVhZGVyIiwiTGF5b3V0IiwiY2hpbGRyZW4iLCJkaXYiLCJjbGFzc05hbWUiLCJtYWluIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./components/Layout.js\n");
+
+/***/ }),
+
+/***/ "./pages/_app.js":
+/*!***********************!*\
+  !*** ./pages/_app.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/globals.css */ \"./styles/globals.css\");\n/* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var context_AuthContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! context/AuthContext */ \"../../packages/context/AuthContext.js\");\n/* harmony import */ var supabase_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! supabase-client */ \"../../packages/supabase-client/index.js\");\n/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Layout */ \"./components/Layout.js\");\n\n\n\n\n\nfunction MyApp({ Component, pageProps }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(context_AuthContext__WEBPACK_IMPORTED_MODULE_2__.AuthProvider, {\n        supabaseClient: supabase_client__WEBPACK_IMPORTED_MODULE_3__.supabase,\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_Layout__WEBPACK_IMPORTED_MODULE_4__.Layout, {\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n                ...pageProps\n            }, void 0, false, {\n                fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\pages\\\\_app.js\",\n                lineNumber: 10,\n                columnNumber: 9\n            }, this)\n        }, void 0, false, {\n            fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\pages\\\\_app.js\",\n            lineNumber: 9,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"D:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\apps\\\\web\\\\pages\\\\_app.js\",\n        lineNumber: 8,\n        columnNumber: 5\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyApp);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUErQjtBQUNvQjtBQUNSO0FBQ0c7QUFFOUMsU0FBU0csTUFBTSxFQUFFQyxTQUFTLEVBQUVDLFNBQVMsRUFBRTtJQUNyQyxxQkFDRSw4REFBQ0wsNkRBQVlBO1FBQUNNLGdCQUFnQkwscURBQVFBO2tCQUNwQyw0RUFBQ0Msc0RBQU1BO3NCQUNMLDRFQUFDRTtnQkFBVyxHQUFHQyxTQUFTOzs7Ozs7Ozs7Ozs7Ozs7O0FBSWhDO0FBRUEsaUVBQWVGLEtBQUtBLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly93ZWIvLi9wYWdlcy9fYXBwLmpzP2UwYWQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFwiLi4vc3R5bGVzL2dsb2JhbHMuY3NzXCI7XHJcbmltcG9ydCB7IEF1dGhQcm92aWRlciB9IGZyb20gXCJjb250ZXh0L0F1dGhDb250ZXh0XCI7XHJcbmltcG9ydCB7IHN1cGFiYXNlIH0gZnJvbSBcInN1cGFiYXNlLWNsaWVudFwiO1xyXG5pbXBvcnQgeyBMYXlvdXQgfSBmcm9tIFwiLi4vY29tcG9uZW50cy9MYXlvdXRcIjtcclxuXHJcbmZ1bmN0aW9uIE15QXBwKHsgQ29tcG9uZW50LCBwYWdlUHJvcHMgfSkge1xyXG4gIHJldHVybiAoXHJcbiAgICA8QXV0aFByb3ZpZGVyIHN1cGFiYXNlQ2xpZW50PXtzdXBhYmFzZX0+XHJcbiAgICAgIDxMYXlvdXQ+XHJcbiAgICAgICAgPENvbXBvbmVudCB7Li4ucGFnZVByb3BzfSAvPlxyXG4gICAgICA8L0xheW91dD5cclxuICAgIDwvQXV0aFByb3ZpZGVyPlxyXG4gICk7XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IE15QXBwOyJdLCJuYW1lcyI6WyJBdXRoUHJvdmlkZXIiLCJzdXBhYmFzZSIsIkxheW91dCIsIk15QXBwIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIiwic3VwYWJhc2VDbGllbnQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
+
+/***/ }),
+
+/***/ "__barrel_optimize__?names=ChevronLeft,LogOut!=!../../node_modules/lucide-react/dist/esm/lucide-react.js":
+/*!***************************************************************************************************************!*\
+  !*** __barrel_optimize__?names=ChevronLeft,LogOut!=!../../node_modules/lucide-react/dist/esm/lucide-react.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ChevronLeft: () => (/* reexport safe */ _icons_chevron_left_js__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   LogOut: () => (/* reexport safe */ _icons_log_out_js__WEBPACK_IMPORTED_MODULE_1__["default"])
+/* harmony export */ });
+/* harmony import */ var _icons_chevron_left_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-left.js */ "../../node_modules/lucide-react/dist/esm/icons/chevron-left.js");
+/* harmony import */ var _icons_log_out_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/log-out.js */ "../../node_modules/lucide-react/dist/esm/icons/log-out.js");
+
+
+
+
+/***/ }),
+
+/***/ "../../packages/context/AuthContext.js":
+/*!*********************************************!*\
+  !*** ../../packages/context/AuthContext.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   AuthProvider: () => (/* binding */ AuthProvider),\n/* harmony export */   useAuth: () => (/* binding */ useAuth)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst AuthContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)({\n    user: null,\n    session: null\n});\nconst AuthProvider = ({ supabaseClient, children })=>{\n    const [user, setUser] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const [session, setSession] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        const { data: { subscription } } = supabaseClient.auth.onAuthStateChange((event, session)=>{\n            setSession(session);\n            setUser(session?.user ?? null);\n        });\n        // Fetch initial session\n        supabaseClient.auth.getSession().then(({ data: { session } })=>{\n            setSession(session);\n            setUser(session?.user ?? null);\n        });\n        return ()=>subscription.unsubscribe();\n    }, [\n        supabaseClient\n    ]);\n    const value = {\n        user,\n        session\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(AuthContext.Provider, {\n        value: value,\n        children: children\n    }, void 0, false, {\n        fileName: \"d:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\packages\\\\context\\\\AuthContext.js\",\n        lineNumber: 30,\n        columnNumber: 10\n    }, undefined);\n};\nconst useAuth = ()=>(0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(AuthContext);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vcGFja2FnZXMvY29udGV4dC9BdXRoQ29udGV4dC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQXVFO0FBRXZFLE1BQU1JLDRCQUFjSixvREFBYUEsQ0FBQztJQUNoQ0ssTUFBTTtJQUNOQyxTQUFTO0FBQ1g7QUFFTyxNQUFNQyxlQUFlLENBQUMsRUFBRUMsY0FBYyxFQUFFQyxRQUFRLEVBQUU7SUFDdkQsTUFBTSxDQUFDSixNQUFNSyxRQUFRLEdBQUdQLCtDQUFRQSxDQUFDO0lBQ2pDLE1BQU0sQ0FBQ0csU0FBU0ssV0FBVyxHQUFHUiwrQ0FBUUEsQ0FBQztJQUV2Q0QsZ0RBQVNBLENBQUM7UUFDUixNQUFNLEVBQ0pVLE1BQU0sRUFBRUMsWUFBWSxFQUFFLEVBQ3ZCLEdBQUdMLGVBQWVNLElBQUksQ0FBQ0MsaUJBQWlCLENBQUMsQ0FBQ0MsT0FBT1Y7WUFDaERLLFdBQVdMO1lBQ1hJLFFBQVFKLFNBQVNELFFBQVE7UUFDM0I7UUFFQSx3QkFBd0I7UUFDeEJHLGVBQWVNLElBQUksQ0FBQ0csVUFBVSxHQUFHQyxJQUFJLENBQUMsQ0FBQyxFQUFFTixNQUFNLEVBQUVOLE9BQU8sRUFBRSxFQUFFO1lBQzFESyxXQUFXTDtZQUNYSSxRQUFRSixTQUFTRCxRQUFRO1FBQzNCO1FBRUEsT0FBTyxJQUFNUSxhQUFhTSxXQUFXO0lBQ3ZDLEdBQUc7UUFBQ1g7S0FBZTtJQUVuQixNQUFNWSxRQUFRO1FBQUVmO1FBQU1DO0lBQVE7SUFDOUIscUJBQU8sOERBQUNGLFlBQVlpQixRQUFRO1FBQUNELE9BQU9BO2tCQUFRWDs7Ozs7O0FBQzlDLEVBQUU7QUFFSyxNQUFNYSxVQUFVLElBQU1yQixpREFBVUEsQ0FBQ0csYUFBYSIsInNvdXJjZXMiOlsid2VicGFjazovL3dlYi8uLi8uLi9wYWNrYWdlcy9jb250ZXh0L0F1dGhDb250ZXh0LmpzPzFkNGEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3JlYXRlQ29udGV4dCwgdXNlQ29udGV4dCwgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gXCJyZWFjdFwiO1xyXG5cclxuY29uc3QgQXV0aENvbnRleHQgPSBjcmVhdGVDb250ZXh0KHtcclxuICB1c2VyOiBudWxsLFxyXG4gIHNlc3Npb246IG51bGwsXHJcbn0pO1xyXG5cclxuZXhwb3J0IGNvbnN0IEF1dGhQcm92aWRlciA9ICh7IHN1cGFiYXNlQ2xpZW50LCBjaGlsZHJlbiB9KSA9PiB7XHJcbiAgY29uc3QgW3VzZXIsIHNldFVzZXJdID0gdXNlU3RhdGUobnVsbCk7XHJcbiAgY29uc3QgW3Nlc3Npb24sIHNldFNlc3Npb25dID0gdXNlU3RhdGUobnVsbCk7XHJcblxyXG4gIHVzZUVmZmVjdCgoKSA9PiB7XHJcbiAgICBjb25zdCB7XHJcbiAgICAgIGRhdGE6IHsgc3Vic2NyaXB0aW9uIH0sXHJcbiAgICB9ID0gc3VwYWJhc2VDbGllbnQuYXV0aC5vbkF1dGhTdGF0ZUNoYW5nZSgoZXZlbnQsIHNlc3Npb24pID0+IHtcclxuICAgICAgc2V0U2Vzc2lvbihzZXNzaW9uKTtcclxuICAgICAgc2V0VXNlcihzZXNzaW9uPy51c2VyID8/IG51bGwpO1xyXG4gICAgfSk7XHJcblxyXG4gICAgLy8gRmV0Y2ggaW5pdGlhbCBzZXNzaW9uXHJcbiAgICBzdXBhYmFzZUNsaWVudC5hdXRoLmdldFNlc3Npb24oKS50aGVuKCh7IGRhdGE6IHsgc2Vzc2lvbiB9IH0pID0+IHtcclxuICAgICAgc2V0U2Vzc2lvbihzZXNzaW9uKTtcclxuICAgICAgc2V0VXNlcihzZXNzaW9uPy51c2VyID8/IG51bGwpO1xyXG4gICAgfSk7XHJcblxyXG4gICAgcmV0dXJuICgpID0+IHN1YnNjcmlwdGlvbi51bnN1YnNjcmliZSgpO1xyXG4gIH0sIFtzdXBhYmFzZUNsaWVudF0pO1xyXG5cclxuICBjb25zdCB2YWx1ZSA9IHsgdXNlciwgc2Vzc2lvbiB9O1xyXG4gIHJldHVybiA8QXV0aENvbnRleHQuUHJvdmlkZXIgdmFsdWU9e3ZhbHVlfT57Y2hpbGRyZW59PC9BdXRoQ29udGV4dC5Qcm92aWRlcj47XHJcbn07XHJcblxyXG5leHBvcnQgY29uc3QgdXNlQXV0aCA9ICgpID0+IHVzZUNvbnRleHQoQXV0aENvbnRleHQpOyJdLCJuYW1lcyI6WyJjcmVhdGVDb250ZXh0IiwidXNlQ29udGV4dCIsInVzZUVmZmVjdCIsInVzZVN0YXRlIiwiQXV0aENvbnRleHQiLCJ1c2VyIiwic2Vzc2lvbiIsIkF1dGhQcm92aWRlciIsInN1cGFiYXNlQ2xpZW50IiwiY2hpbGRyZW4iLCJzZXRVc2VyIiwic2V0U2Vzc2lvbiIsImRhdGEiLCJzdWJzY3JpcHRpb24iLCJhdXRoIiwib25BdXRoU3RhdGVDaGFuZ2UiLCJldmVudCIsImdldFNlc3Npb24iLCJ0aGVuIiwidW5zdWJzY3JpYmUiLCJ2YWx1ZSIsIlByb3ZpZGVyIiwidXNlQXV0aCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///../../packages/context/AuthContext.js\n");
+
+/***/ }),
+
+/***/ "../../packages/supabase-client/index.js":
+/*!***********************************************!*\
+  !*** ../../packages/supabase-client/index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   supabase: () => (/* binding */ supabase)\n/* harmony export */ });\n/* harmony import */ var _supabase_ssr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @supabase/ssr */ \"../../node_modules/@supabase/ssr/dist/main/index.js\");\n/* harmony import */ var _supabase_ssr__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_supabase_ssr__WEBPACK_IMPORTED_MODULE_0__);\n\nconst supabaseUrl = \"https://adchcwbjpxkpduyolzsl.supabase.co\";\nconst supabaseAnonKey = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFkY2hjd2JqcHhrcGR1eW9senNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5NDEyNDIsImV4cCI6MjA3NDUxNzI0Mn0.-S3rmFOLJnpHnyi-mtYIboBMdFWzqwwGAV_BcoRX-uQ\";\nif (!supabaseUrl || !supabaseAnonKey) {\n    throw new Error(\"Missing Supabase URL or anon key. Make sure to set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in your .env file.\");\n}\nconst supabase = (0,_supabase_ssr__WEBPACK_IMPORTED_MODULE_0__.createBrowserClient)(supabaseUrl, supabaseAnonKey);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vcGFja2FnZXMvc3VwYWJhc2UtY2xpZW50L2luZGV4LmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFvRDtBQUVwRCxNQUFNQyxjQUFjQywwQ0FBb0M7QUFDeEQsTUFBTUcsa0JBQWtCSCxrTkFBeUM7QUFFakUsSUFBSSxDQUFDRCxlQUFlLENBQUNJLGlCQUFpQjtJQUNwQyxNQUFNLElBQUlFLE1BQ1I7QUFFSjtBQUVPLE1BQU1DLFdBQVdSLGtFQUFtQkEsQ0FBQ0MsYUFBYUksaUJBQWlCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vd2ViLy4uLy4uL3BhY2thZ2VzL3N1cGFiYXNlLWNsaWVudC9pbmRleC5qcz8wMGI0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNyZWF0ZUJyb3dzZXJDbGllbnQgfSBmcm9tIFwiQHN1cGFiYXNlL3NzclwiO1xyXG5cclxuY29uc3Qgc3VwYWJhc2VVcmwgPSBwcm9jZXNzLmVudi5ORVhUX1BVQkxJQ19TVVBBQkFTRV9VUkw7XHJcbmNvbnN0IHN1cGFiYXNlQW5vbktleSA9IHByb2Nlc3MuZW52Lk5FWFRfUFVCTElDX1NVUEFCQVNFX0FOT05fS0VZO1xyXG5cclxuaWYgKCFzdXBhYmFzZVVybCB8fCAhc3VwYWJhc2VBbm9uS2V5KSB7XHJcbiAgdGhyb3cgbmV3IEVycm9yKFxyXG4gICAgXCJNaXNzaW5nIFN1cGFiYXNlIFVSTCBvciBhbm9uIGtleS4gTWFrZSBzdXJlIHRvIHNldCBORVhUX1BVQkxJQ19TVVBBQkFTRV9VUkwgYW5kIE5FWFRfUFVCTElDX1NVUEFCQVNFX0FOT05fS0VZIGluIHlvdXIgLmVudiBmaWxlLlwiXHJcbiAgKTtcclxufVxyXG5cclxuZXhwb3J0IGNvbnN0IHN1cGFiYXNlID0gY3JlYXRlQnJvd3NlckNsaWVudChzdXBhYmFzZVVybCwgc3VwYWJhc2VBbm9uS2V5KTtcclxuXHJcbiJdLCJuYW1lcyI6WyJjcmVhdGVCcm93c2VyQ2xpZW50Iiwic3VwYWJhc2VVcmwiLCJwcm9jZXNzIiwiZW52IiwiTkVYVF9QVUJMSUNfU1VQQUJBU0VfVVJMIiwic3VwYWJhc2VBbm9uS2V5IiwiTkVYVF9QVUJMSUNfU1VQQUJBU0VfQU5PTl9LRVkiLCJFcnJvciIsInN1cGFiYXNlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///../../packages/supabase-client/index.js\n");
+
+/***/ }),
+
+/***/ "../../packages/ui/index.js":
+/*!**********************************!*\
+  !*** ../../packages/ui/index.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Card: () => (/* binding */ Card),\n/* harmony export */   DarkButton: () => (/* binding */ DarkButton),\n/* harmony export */   GradientButton: () => (/* binding */ GradientButton),\n/* harmony export */   GradientHeading: () => (/* binding */ GradientHeading)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ \"../../node_modules/clsx/dist/clsx.mjs\");\n\n\n\n// A primary gradient button\nconst GradientButton = ({ children, className, ...props })=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n        className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"bg-ai-gradient text-white px-5 py-3 rounded-xl font-semibold shadow hover:opacity-90 transition\", className),\n        ...props,\n        children: children\n    }, void 0, false, {\n        fileName: \"d:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\packages\\\\ui\\\\index.js\",\n        lineNumber: 6,\n        columnNumber: 3\n    }, undefined);\n// A secondary dark-mode button\nconst DarkButton = ({ children, className, ...props })=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n        className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"bg-neutral-900 text-white px-5 py-3 rounded-xl font-semibold shadow hover:bg-neutral-800 transition dark:bg-neutral-800 dark:hover:bg-neutral-700\", className),\n        ...props,\n        children: children\n    }, void 0, false, {\n        fileName: \"d:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\packages\\\\ui\\\\index.js\",\n        lineNumber: 19,\n        columnNumber: 3\n    }, undefined);\n// A card container\nconst Card = ({ children, className })=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 shadow-md\", className),\n        children: children\n    }, void 0, false, {\n        fileName: \"d:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\packages\\\\ui\\\\index.js\",\n        lineNumber: 32,\n        columnNumber: 3\n    }, undefined);\n// A gradient heading\nconst GradientHeading = ({ children, className })=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n        className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"text-3xl font-bold bg-ai-gradient bg-clip-text text-transparent\", className),\n        children: children\n    }, void 0, false, {\n        fileName: \"d:\\\\ImagesandPrompts\\\\ImagesandPropmts\\\\IandP\\\\packages\\\\ui\\\\index.js\",\n        lineNumber: 44,\n        columnNumber: 3\n    }, undefined);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vcGFja2FnZXMvdWkvaW5kZXguanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OztBQUEwQjtBQUNGO0FBRXhCLDRCQUE0QjtBQUNyQixNQUFNRSxpQkFBaUIsQ0FBQyxFQUFFQyxRQUFRLEVBQUVDLFNBQVMsRUFBRSxHQUFHQyxPQUFPLGlCQUM5RCw4REFBQ0M7UUFDQ0YsV0FBV0gsZ0RBQUlBLENBQ2IsbUdBQ0FHO1FBRUQsR0FBR0MsS0FBSztrQkFFUkY7Ozs7O2tCQUVIO0FBRUYsK0JBQStCO0FBQ3hCLE1BQU1JLGFBQWEsQ0FBQyxFQUFFSixRQUFRLEVBQUVDLFNBQVMsRUFBRSxHQUFHQyxPQUFPLGlCQUMxRCw4REFBQ0M7UUFDQ0YsV0FBV0gsZ0RBQUlBLENBQ2IscUpBQ0FHO1FBRUQsR0FBR0MsS0FBSztrQkFFUkY7Ozs7O2tCQUVIO0FBRUYsbUJBQW1CO0FBQ1osTUFBTUssT0FBTyxDQUFDLEVBQUVMLFFBQVEsRUFBRUMsU0FBUyxFQUFFLGlCQUMxQyw4REFBQ0s7UUFDQ0wsV0FBV0gsZ0RBQUlBLENBQ2IsK0RBQ0FHO2tCQUdERDs7Ozs7a0JBRUg7QUFFRixxQkFBcUI7QUFDZCxNQUFNTyxrQkFBa0IsQ0FBQyxFQUFFUCxRQUFRLEVBQUVDLFNBQVMsRUFBRSxpQkFDckQsOERBQUNPO1FBQ0NQLFdBQVdILGdEQUFJQSxDQUNiLG1FQUNBRztrQkFHREQ7Ozs7O2tCQUVIIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vd2ViLy4uLy4uL3BhY2thZ2VzL3VpL2luZGV4LmpzPzI3MjQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xyXG5pbXBvcnQgY2xzeCBmcm9tIFwiY2xzeFwiO1xyXG5cclxuLy8gQSBwcmltYXJ5IGdyYWRpZW50IGJ1dHRvblxyXG5leHBvcnQgY29uc3QgR3JhZGllbnRCdXR0b24gPSAoeyBjaGlsZHJlbiwgY2xhc3NOYW1lLCAuLi5wcm9wcyB9KSA9PiAoXHJcbiAgPGJ1dHRvblxyXG4gICAgY2xhc3NOYW1lPXtjbHN4KFxyXG4gICAgICBcImJnLWFpLWdyYWRpZW50IHRleHQtd2hpdGUgcHgtNSBweS0zIHJvdW5kZWQteGwgZm9udC1zZW1pYm9sZCBzaGFkb3cgaG92ZXI6b3BhY2l0eS05MCB0cmFuc2l0aW9uXCIsXHJcbiAgICAgIGNsYXNzTmFtZVxyXG4gICAgKX1cclxuICAgIHsuLi5wcm9wc31cclxuICA+XHJcbiAgICB7Y2hpbGRyZW59XHJcbiAgPC9idXR0b24+XHJcbik7XHJcblxyXG4vLyBBIHNlY29uZGFyeSBkYXJrLW1vZGUgYnV0dG9uXHJcbmV4cG9ydCBjb25zdCBEYXJrQnV0dG9uID0gKHsgY2hpbGRyZW4sIGNsYXNzTmFtZSwgLi4ucHJvcHMgfSkgPT4gKFxyXG4gIDxidXR0b25cclxuICAgIGNsYXNzTmFtZT17Y2xzeChcclxuICAgICAgXCJiZy1uZXV0cmFsLTkwMCB0ZXh0LXdoaXRlIHB4LTUgcHktMyByb3VuZGVkLXhsIGZvbnQtc2VtaWJvbGQgc2hhZG93IGhvdmVyOmJnLW5ldXRyYWwtODAwIHRyYW5zaXRpb24gZGFyazpiZy1uZXV0cmFsLTgwMCBkYXJrOmhvdmVyOmJnLW5ldXRyYWwtNzAwXCIsXHJcbiAgICAgIGNsYXNzTmFtZVxyXG4gICAgKX1cclxuICAgIHsuLi5wcm9wc31cclxuICA+XHJcbiAgICB7Y2hpbGRyZW59XHJcbiAgPC9idXR0b24+XHJcbik7XHJcblxyXG4vLyBBIGNhcmQgY29udGFpbmVyXHJcbmV4cG9ydCBjb25zdCBDYXJkID0gKHsgY2hpbGRyZW4sIGNsYXNzTmFtZSB9KSA9PiAoXHJcbiAgPGRpdlxyXG4gICAgY2xhc3NOYW1lPXtjbHN4KFxyXG4gICAgICBcImJnLW5ldXRyYWwtNTAgZGFyazpiZy1uZXV0cmFsLTkwMCByb3VuZGVkLTJ4bCBwLTYgc2hhZG93LW1kXCIsXHJcbiAgICAgIGNsYXNzTmFtZVxyXG4gICAgKX1cclxuICA+XHJcbiAgICB7Y2hpbGRyZW59XHJcbiAgPC9kaXY+XHJcbik7XHJcblxyXG4vLyBBIGdyYWRpZW50IGhlYWRpbmdcclxuZXhwb3J0IGNvbnN0IEdyYWRpZW50SGVhZGluZyA9ICh7IGNoaWxkcmVuLCBjbGFzc05hbWUgfSkgPT4gKFxyXG4gIDxoMVxyXG4gICAgY2xhc3NOYW1lPXtjbHN4KFxyXG4gICAgICBcInRleHQtM3hsIGZvbnQtYm9sZCBiZy1haS1ncmFkaWVudCBiZy1jbGlwLXRleHQgdGV4dC10cmFuc3BhcmVudFwiLFxyXG4gICAgICBjbGFzc05hbWVcclxuICAgICl9XHJcbiAgPlxyXG4gICAge2NoaWxkcmVufVxyXG4gIDwvaDE+XHJcbik7Il0sIm5hbWVzIjpbIlJlYWN0IiwiY2xzeCIsIkdyYWRpZW50QnV0dG9uIiwiY2hpbGRyZW4iLCJjbGFzc05hbWUiLCJwcm9wcyIsImJ1dHRvbiIsIkRhcmtCdXR0b24iLCJDYXJkIiwiZGl2IiwiR3JhZGllbnRIZWFkaW5nIiwiaDEiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///../../packages/ui/index.js\n");
+
+/***/ }),
+
+/***/ "./styles/globals.css":
+/*!****************************!*\
+  !*** ./styles/globals.css ***!
+  \****************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "../../node_modules/@supabase/realtime-js/dist/main sync recursive":
+/*!****************************************************************!*\
+  !*** ../../node_modules/@supabase/realtime-js/dist/main/ sync ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
+}
+webpackEmptyContext.keys = () => ([]);
+webpackEmptyContext.resolve = webpackEmptyContext;
+webpackEmptyContext.id = "../../node_modules/@supabase/realtime-js/dist/main sync recursive";
+module.exports = webpackEmptyContext;
+
+/***/ }),
+
+/***/ "next/dist/compiled/next-server/pages.runtime.dev.js":
+/*!**********************************************************************!*\
+  !*** external "next/dist/compiled/next-server/pages.runtime.dev.js" ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/compiled/next-server/pages.runtime.dev.js");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-dom":
+/*!****************************!*\
+  !*** external "react-dom" ***!
+  \****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-dom");
+
+/***/ }),
+
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react/jsx-dev-runtime");
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!************************************!*\
+  !*** external "react/jsx-runtime" ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react/jsx-runtime");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ "punycode":
+/*!***************************!*\
+  !*** external "punycode" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("punycode");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "url":
+/*!**********************!*\
+  !*** external "url" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("url");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/@supabase","vendor-chunks/tr46","vendor-chunks/whatwg-url","vendor-chunks/cookie","vendor-chunks/lucide-react","vendor-chunks/webidl-conversions","vendor-chunks/clsx"], () => (__webpack_exec__("./pages/_app.js")));
+module.exports = __webpack_exports__;
+
+})();

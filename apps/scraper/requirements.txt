@@ -1,0 +1,4 @@
+supabase-client
+python-dotenv
+requests
+beautifulsoup4

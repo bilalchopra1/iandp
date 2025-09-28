@@ -1,0 +1,195 @@
+IandP/
+├─ __pycache__/
+│  └─ app.cpython-311.pyc
+├─ apps/
+│  ├─ scraper/
+│  │  ├─ README.md
+│  │  ├─ requirements.txt
+│  │  └─ scrape.py
+│  └─ web/
+│     ├─ .next/
+│     │  ├─ cache/
+│     │  │  ├─ swc/
+│     │  │  │  └─ plugins/
+│     │  │  │     └─ v7_windows_x86_64_0.106.15/
+│     │  │  └─ webpack/
+│     │  │     ├─ client-development/
+│     │  │     │  ├─ 0.pack.gz
+│     │  │     │  ├─ 1.pack.gz
+│     │  │     │  ├─ 10.pack.gz
+│     │  │     │  ├─ 11.pack.gz
+│     │  │     │  ├─ 12.pack.gz
+│     │  │     │  ├─ 13.pack.gz
+│     │  │     │  ├─ 14.pack.gz
+│     │  │     │  ├─ 2.pack.gz
+│     │  │     │  ├─ 3.pack.gz
+│     │  │     │  ├─ 4.pack.gz
+│     │  │     │  ├─ 5.pack.gz
+│     │  │     │  ├─ 6.pack.gz
+│     │  │     │  ├─ 7.pack.gz
+│     │  │     │  ├─ 8.pack.gz
+│     │  │     │  ├─ 9.pack.gz
+│     │  │     │  ├─ index.pack.gz
+│     │  │     │  └─ index.pack.gz.old
+│     │  │     ├─ client-development-fallback/
+│     │  │     │  ├─ 0.pack.gz
+│     │  │     │  ├─ 1.pack.gz
+│     │  │     │  ├─ 2.pack.gz
+│     │  │     │  ├─ index.pack.gz
+│     │  │     │  └─ index.pack.gz.old
+│     │  │     ├─ edge-server-development/
+│     │  │     │  ├─ 0.pack.gz
+│     │  │     │  ├─ 1.pack.gz
+│     │  │     │  ├─ 2.pack.gz
+│     │  │     │  ├─ 3.pack.gz
+│     │  │     │  ├─ index.pack.gz
+│     │  │     │  └─ index.pack.gz.old
+│     │  │     └─ server-development/
+│     │  │        ├─ 0.pack.gz
+│     │  │        ├─ 1.pack.gz
+│     │  │        ├─ 10.pack.gz
+│     │  │        ├─ 11.pack.gz
+│     │  │        ├─ 12.pack.gz
+│     │  │        ├─ 13.pack.gz
+│     │  │        ├─ 14.pack.gz
+│     │  │        ├─ 2.pack.gz
+│     │  │        ├─ 3.pack.gz
+│     │  │        ├─ 4.pack.gz
+│     │  │        ├─ 5.pack.gz
+│     │  │        ├─ 6.pack.gz
+│     │  │        ├─ 7.pack.gz
+│     │  │        ├─ 8.pack.gz
+│     │  │        ├─ 9.pack.gz
+│     │  │        ├─ index.pack.gz
+│     │  │        └─ index.pack.gz.old
+│     │  ├─ server/
+│     │  │  ├─ pages/
+│     │  │  │  ├─ api/
+│     │  │  │  │  └─ generate-prompt.js
+│     │  │  │  ├─ _app.js
+│     │  │  │  ├─ _document.js
+│     │  │  │  ├─ _error.js
+│     │  │  │  └─ index.js
+│     │  │  ├─ static/
+│     │  │  │  └─ webpack/
+│     │  │  │     └─ 633457081244afec._.hot-update.json
+│     │  │  ├─ vendor-chunks/
+│     │  │  │  ├─ @supabase.js
+│     │  │  │  ├─ @swc.js
+│     │  │  │  ├─ cookie.js
+│     │  │  │  ├─ lucide-react.js
+│     │  │  │  ├─ next.js
+│     │  │  │  ├─ tr46.js
+│     │  │  │  ├─ webidl-conversions.js
+│     │  │  │  └─ whatwg-url.js
+│     │  │  ├─ _error.js
+│     │  │  ├─ edge-runtime-webpack.js
+│     │  │  ├─ interception-route-rewrite-manifest.js
+│     │  │  ├─ middleware-build-manifest.js
+│     │  │  ├─ middleware-manifest.json
+│     │  │  ├─ middleware-react-loadable-manifest.js
+│     │  │  ├─ middleware.js
+│     │  │  ├─ next-font-manifest.js
+│     │  │  ├─ next-font-manifest.json
+│     │  │  ├─ pages-manifest.json
+│     │  │  ├─ webpack-api-runtime.js
+│     │  │  └─ webpack-runtime.js
+│     │  ├─ static/
+│     │  │  ├─ chunks/
+│     │  │  │  ├─ pages/
+│     │  │  │  │  ├─ _app.js
+│     │  │  │  │  ├─ _error.js
+│     │  │  │  │  └─ index.js
+│     │  │  │  ├─ _error.js
+│     │  │  │  ├─ main.js
+│     │  │  │  ├─ polyfills.js
+│     │  │  │  ├─ react-refresh.js
+│     │  │  │  └─ webpack.js
+│     │  │  ├─ development/
+│     │  │  │  ├─ _buildManifest.js
+│     │  │  │  └─ _ssgManifest.js
+│     │  │  └─ webpack/
+│     │  │     ├─ 633457081244afec._.hot-update.json
+│     │  │     ├─ f80525310dfe326d.webpack.hot-update.json
+│     │  │     └─ webpack.f80525310dfe326d.hot-update.js
+│     │  ├─ build-manifest.json
+│     │  ├─ package.json
+│     │  ├─ react-loadable-manifest.json
+│     │  └─ trace
+│     ├─ components/
+│     │  ├─ AuthForm.js
+│     │  ├─ CopyButton.js
+│     │  ├─ Header.js
+│     │  ├─ Layout.js
+│     │  ├─ PromptActions.js
+│     │  └─ PromptCard.js
+│     ├─ data/
+│     │  └─ explore.js
+│     ├─ pages/
+│     │  ├─ api/
+│     │  │  ├─ favorite.js
+│     │  │  ├─ generate-prompt.js
+│     │  │  └─ rate-prompt.js
+│     │  ├─ _app.js
+│     │  ├─ explore.js
+│     │  ├─ history.js
+│     │  ├─ index.js
+│     │  └─ login.js
+│     ├─ public/
+│     │  └─ logo.svg
+│     ├─ styles/
+│     │  └─ globals.css
+│     ├─ _app.js
+│     ├─ .env.local
+│     ├─ jsconfig.json
+│     ├─ middleware.js
+│     ├─ next.config.js
+│     ├─ package.json
+│     ├─ postcss.config.js
+│     └─ tailwind.config.js
+├─ docs/
+│  ├─ api-spec.md
+│  ├─ architecture.md
+│  └─ roadmap.md
+├─ infra/
+│  ├─ github-actions/
+│  │  └─ scrape.yml
+│  ├─ README.md
+│  ├─ supabase-rate-limit.sql
+│  ├─ supabase-schema.sql
+│  └─ vercel.json
+├─ packages/
+│  ├─ api-client/
+│  │  ├─ index.js
+│  │  └─ package.json
+│  ├─ context/
+│  │  ├─ AuthContext.js
+│  │  └─ package.json
+│  ├─ prompt-model/
+│  │  ├─ index.js
+│  │  ├─ package.json
+│  │  └─ README.md
+│  ├─ supabase-client/
+│  │  ├─ index.js
+│  │  └─ package.json
+│  └─ ui/
+│     ├─ Card.js
+│     ├─ DarkButton.js
+│     ├─ GradientButton.js
+│     ├─ GradientHeading.js
+│     ├─ index.js
+│     └─ package.json
+├─ .dcignore
+├─ .gitignore
+├─ .windsurfrules
+├─ civitai_scraper.py
+├─ CLAUDE.md
+├─ favorite.js
+├─ GEMINI.md
+├─ generation_tool.md
+├─ lexica_scraper.py
+├─ package-lock.json
+├─ package.json
+├─ Plan.txt
+├─ README.md
+└─ scraping_list.md

@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "api-client": ["../../packages/api-client"]
+    }
+  }
+}
