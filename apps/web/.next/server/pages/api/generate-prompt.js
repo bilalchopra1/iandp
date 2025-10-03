@@ -33,16 +33,6 @@ module.exports = require("next/dist/compiled/next-server/pages-api.runtime.dev.j
 
 /***/ }),
 
-/***/ "formidable":
-/*!*****************************!*\
-  !*** external "formidable" ***!
-  \*****************************/
-/***/ ((module) => {
-
-module.exports = import("formidable");;
-
-/***/ }),
-
 /***/ "fs":
 /*!*********************!*\
   !*** external "fs" ***!
@@ -50,6 +40,16 @@ module.exports = import("formidable");;
 /***/ ((module) => {
 
 module.exports = require("fs");
+
+/***/ }),
+
+/***/ "formidable":
+/*!*****************************!*\
+  !*** external "formidable" ***!
+  \*****************************/
+/***/ ((module) => {
+
+module.exports = import("formidable");;
 
 /***/ }),
 
