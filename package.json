@@ -2,6 +2,9 @@
    "name": "imagesandprompts-monorepo",
    "private": true,
    "workspaces": [
+      "apps/web",
+      "packages/ui",
+      "packages/eslint-config-custom",
       "apps/*",
       "packages/*"
    ],
@@ -12,14 +15,16 @@
       "lint": "npm run lint --workspace=web"
    },
    "devDependencies": {
-      "eslint-config-next": "14.2.3"
+      "eslint-config-next": "14.2.5"
    },
    "dependencies": {
       "@supabase/ssr": "^0.7.0",
       "@supabase/supabase-js": "^2.58.0",
       "lucide-react": "^0.544.0",
-      "react-hot-toast": "^2.4.1",
+      "next": "^14.2.33",
       "react": "18.3.1",
-      "react-dom": "18.3.1"
+      "react-dom": "18.3.1",
+      "react-hot-toast": "^2.4.1",
+      "uuid": "^13.0.0"
    }
 }

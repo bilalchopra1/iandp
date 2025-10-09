@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "dadroit.dadroit-json-generator"
+        "dadroit.dadroit-json-generator",
+        "robertpiosik.gemini-coder"
     ]
 }

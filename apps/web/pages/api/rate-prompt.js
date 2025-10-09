@@ -1,4 +1,4 @@
-import { createPagesServerClient } from "@supabase/ssr";
+import { createServerClient } from "@supabase/ssr";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -6,7 +6,24 @@ export default async function handler(req, res) {
     return res.status(405).end("Method Not Allowed");
   }
 
-  const supabase = createPagesServerClient({ req, res });
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        get(name) {
+          return req.cookies[name];
+        },
+        set(name, value, options) {
+          res.setHeader('Set-Cookie', `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax`);
+        },
+        remove(name) {
+          res.setHeader('Set-Cookie', `${name}=; Path=/; Max-Age=0`);
+        },
+      },
+    }
+  );
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -27,7 +44,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Upsert the user's rating. This will insert a new rating or update an existing one.
+    // Upsert the user's rating
     const { error: upsertError } = await supabase
       .from("prompt_ratings")
       .upsert({
@@ -38,11 +55,7 @@ export default async function handler(req, res) {
 
     if (upsertError) throw upsertError;
 
-    // After the rating is recorded, we need to recalculate the average rating
-    // and rating count for the prompt. This is best done in a database function
-    // for atomicity, but we can do it here for simplicity.
-
-    // 1. Get all ratings for the prompt
+    // Get all ratings for the prompt
     const { data: ratings, error: ratingsError } = await supabase
       .from("prompt_ratings")
       .select("rating")
@@ -50,12 +63,12 @@ export default async function handler(req, res) {
 
     if (ratingsError) throw ratingsError;
 
-    // 2. Calculate new average and count
+    // Calculate new average and count
     const rating_count = ratings.length;
     const total_rating_score = ratings.reduce((acc, r) => acc + r.rating, 0);
     const avg_rating = (total_rating_score / rating_count).toFixed(2);
 
-    // 3. Update the prompts table
+    // Update the prompts table
     const { data: updatedPrompt, error: updateError } = await supabase
       .from("prompts")
       .update({

@@ -1,0 +1,62 @@
+{
+    "codeWebChat.chatPresetsForCodeAtCursor": [
+        {
+            "name": "(0)",
+            "chatbot": "ChatGPT"
+        },
+        {
+            "name": "(1)",
+            "chatbot": "Gemini"
+        },
+        {
+            "name": "(2)",
+            "chatbot": "AI Studio",
+            "temperature": 0.5,
+            "systemInstructions": "You're a helpful coding assistant."
+        },
+        {
+            "name": "(3)",
+            "chatbot": "Claude"
+        },
+        {
+            "name": "(4)",
+            "chatbot": "Grok"
+        },
+        {
+            "name": "(5)",
+            "chatbot": "Perplexity"
+        },
+        {
+            "name": "(6)",
+            "chatbot": "Mistral"
+        },
+        {
+            "name": "(7)",
+            "chatbot": "DeepSeek"
+        },
+        {
+            "name": "(8)",
+            "chatbot": "Qwen"
+        },
+        {
+            "name": "(9)",
+            "chatbot": "Together"
+        },
+        {
+            "name": "(10)",
+            "chatbot": "Yuanbao"
+        },
+        {
+            "name": "(11)",
+            "chatbot": "Doubao"
+        },
+        {
+            "name": "(12)",
+            "chatbot": "Kimi"
+        },
+        {
+            "name": "(13)",
+            "chatbot": "Z.AI"
+        }
+    ]
+}

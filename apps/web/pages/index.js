@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { GradientButton, DarkButton, Card, GradientHeading } from "ui";
+import { GradientButton, Card, GradientHeading } from "ui";
 import { CopyButton } from "../components/CopyButton";
 import { LoaderCircle } from "lucide-react";
 import { useAuth } from "context/AuthContext";
@@ -125,11 +125,15 @@ export default function Home() {
 
             {previewUrl && (
               <div className="flex flex-col items-center gap-4">
-                <img
-                  src={previewUrl}
-                  alt="Selected preview"
-                  className="max-w-full h-auto max-h-64 rounded-lg shadow-md"
-                />
+                <div className="relative w-full h-64">
+                  <Image
+                    src={previewUrl}
+                    alt="Selected preview"
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded-lg shadow-md"
+                  />
+                </div>
                 <GradientButton type="submit" disabled={isLoading}>
                   {isLoading ? "Generating..." : "Generate Prompt"}
                 </GradientButton>
@@ -160,6 +164,40 @@ export default function Home() {
                 <CopyButton textToCopy={prompt} />
               </div>
             </Card>
+            
+            {/* Navigation buttons after prompt generation */}
+            <div className="mt-4 flex flex-col sm:flex-row gap-3 justify-center">
+              <GradientButton
+                onClick={() => {
+                  setImage(null);
+                  setPreviewUrl("");
+                  setPrompt("");
+                  setError(null);
+                  if (fileInputRef.current) {
+                    fileInputRef.current.value = "";
+                  }
+                }}
+                className="w-full sm:w-auto"
+              >
+                Upload Another Image
+              </GradientButton>
+              <GradientButton
+                onClick={() => {
+                  setImage(null);
+                  setPreviewUrl("");
+                  setPrompt("");
+                  setError(null);
+                  if (fileInputRef.current) {
+                    fileInputRef.current.value = "";
+                  }
+                  // Scroll to top to show the upload form
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="w-full sm:w-auto"
+              >
+                Generate New Prompt
+              </GradientButton>
+            </div>
           </div>
         )}
       </div>

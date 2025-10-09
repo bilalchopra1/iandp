@@ -1,4 +1,4 @@
-import { createPagesServerClient } from "@supabase/ssr";
+import { createServerClient } from "@supabase/ssr";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -6,7 +6,24 @@ export default async function handler(req, res) {
     return res.status(405).end("Method Not Allowed");
   }
 
-  const supabase = createPagesServerClient({ req, res });
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        get(name) {
+          return req.cookies[name];
+        },
+        set(name, value, options) {
+          res.setHeader('Set-Cookie', `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax`);
+        },
+        remove(name) {
+          res.setHeader('Set-Cookie', `${name}=; Path=/; Max-Age=0`);
+        },
+      },
+    }
+  );
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -15,35 +32,33 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const { promptId } = req.body;
-  const userId = user.id;
+  const { promptId: prompt_id } = req.body;
+  const user_id = user.id;
 
   try {
     // Check if the favorite already exists
-    const { data: existing, error: selectError } = await supabase
+    const { data: existingFavorite, error: selectError } = await supabase
       .from("prompt_favorites")
       .select("*")
-      .eq("user_id", userId)
-      .eq("prompt_id", promptId)
+      .eq("user_id", user_id)
+      .eq("prompt_id", prompt_id)
       .single();
 
-    if (existing) {
-      // Unfavorite
-      await supabase.from("prompt_favorites").delete().match({ user_id: userId, prompt_id: promptId });
-      return res.status(200).json({ favorited: false });
+    if (selectError && selectError.code !== "PGRST116") throw selectError; // Ignore 'no rows' error
+
+    if (existingFavorite) {
+      // If it exists, unfavorite it
+      const { error } = await supabase.from("prompt_favorites").delete().match({ user_id, prompt_id });
+      if (error) throw error;
+      return res.status(200).json({ favorited: false, message: "Unfavorited successfully" });
     } else {
-      // Favorite
-      await supabase.from("prompt_favorites").insert({ user_id: userId, prompt_id: promptId });
-      return res.status(200).json({ favorited: true });
+      // If it doesn't exist, favorite it
+      const { error } = await supabase.from("prompt_favorites").insert({ user_id, prompt_id });
+      if (error) throw error;
+      return res.status(200).json({ favorited: true, message: "Favorited successfully" });
     }
   } catch (error) {
-    // Ignore "PGRST116" which means no rows were found on the select, which is expected when favoriting for the first time.
-    if (error.code !== 'PGRST116') {
-      console.error("Favorite API Error:", error);
-      return res.status(500).json({ error: error.message });
-    }
-     // If the error was PGRST116, it means we should favorite it.
-    await supabase.from("prompt_favorites").insert({ user_id: userId, prompt_id: promptId });
-    return res.status(200).json({ favorited: true });
+    console.error("Favorite API Error:", error);
+    return res.status(500).json({ error: error.message });
   }
 }

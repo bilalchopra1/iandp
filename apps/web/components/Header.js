@@ -2,13 +2,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAuth } from "context/AuthContext";
-import { supabase } from "supabase-client";
 import { DarkButton, GradientButton } from "ui";
 import { LogOut, ChevronLeft } from "lucide-react";
 
 export const Header = () => {
-  const { user } = useAuth();
+  const { user, supabaseClient } = useAuth();
   const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) {
+        console.error('Logout error:', error);
+        return;
+      }
+      // The AuthContext will handle the user state update automatically
+      router.push('/');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  }
 
   return (
     <header className="bg-neutral-950 p-4 sticky top-0 z-10">
@@ -19,21 +32,15 @@ export const Header = () => {
               <ChevronLeft size={18} />
             </DarkButton>
           )}
-                  <div className="flex items-center gap-4">
-                    {router.pathname !== "/" && (
-                      <DarkButton onClick={() => router.back()} className="!p-2" aria-label="Go back">
-                        <ChevronLeft size={18} />
-                      </DarkButton>
-                    )}
-                    <Link href="/" passHref>
-                      <div className="flex items-center gap-3 cursor-pointer">
-                        <Image src="/logo.svg" alt="AI Prompt Finder Logo" width={50} height={50} />
-                        <span className="font-semibold text-xl hidden sm:block">
-                          AI Prompt Finder
-                        </span>
-                      </div>
-                    </Link>
-                  </div>        </div>
+          <Link href="/" passHref>
+            <div className="flex items-center gap-3 cursor-pointer">
+              <Image src="/logo.svg" alt="AI Prompt Finder Logo" width={50} height={50} />
+              <span className="font-semibold text-xl hidden sm:block">
+                AI Prompt Finder
+              </span>
+            </div>
+          </Link>
+        </div>
 
         <div className="flex items-center gap-4">
           {user && (
@@ -41,11 +48,17 @@ export const Header = () => {
               <Link href="/explore" passHref>
                 <DarkButton>Explore</DarkButton>
               </Link>
+              <Link href="/packs" passHref>
+                <DarkButton>Packs</DarkButton>
+              </Link>
               <Link href="/history" passHref>
-                <DarkButton>My History</DarkButton>
+                <DarkButton>History</DarkButton>
+              </Link>
+              <Link href="/account" passHref>
+                <DarkButton>Account</DarkButton>
               </Link>
               <DarkButton
-                onClick={() => supabase.auth.signOut()}
+                onClick={handleSignOut}
                 className="!p-2"
                 aria-label="Sign Out"
               >

@@ -1,36 +1,19 @@
 iandp/
 │
 ├── apps/
-│   ├── web/                   # Next.js frontend (Vercel)
-│   │   ├── pages/             # Pages (index, explore, api routes)
-│   │   ├── components/        # Reusable UI components
-│   │   ├── styles/            # Tailwind CSS
-│   │   ├── public/            # Static assets (logo, icons)
-│   │   └── package.json
-│   │
-│   └── scraper/               # Python scraper (GitHub Actions)
-│       ├── scrape.py          # Crawls prompt sources, pushes to DB
-│       ├── requirements.txt
-│       └── README.md
+│   ├── web/      # Next.js frontend
+│   └── scraper/  # Python scraper
 │
 ├── packages/
-│   ├── ui/                    # Shared React components (buttons, cards)
-│   │   ├── index.js           # Exports Card, GradientButton, etc.
-│   │   └── package.json
-│   │
-│   ├── api-client/            # JS client for backend endpoints
-│   │   └── index.js
-│   │
-│   └── prompt-model/          # Wrapper for Hugging Face API calls
-│       ├── index.js           # Sends image to HF, gets prompt back
-│       └── README.md
+│   ├── ui/
+│   ├── context/
+│   ├── tag-generator/
+│   └── supabase-client/
 │
 ├── infra/
-│   ├── supabase-schema.sql    # Tables: users, images, prompts, tags
-│   ├── vercel.json            # Vercel config
-│   ├── github-actions/        # CI/CD + scraper cron
-│   │   └── scrape.yml
-│   └── README.md
+│   ├── supabase-schema.sql
+│   ├── supabase-profiles.sql
+│   └── supabase-rate-limit.sql
 │
 ├── docs/
 │   ├── roadmap.md             # Phases and milestones
@@ -41,45 +24,30 @@ iandp/
 ├── package.json               # Root workspace config (npm workspaces)
 └── README.md                  # Overview + setup instructions
 
-How it works
-
-apps/web → user-facing site (upload image, view prompt library).
-
-apps/scraper → your prompt crawler (runs on GitHub Actions, feeds Supabase DB).
-
-packages/prompt-model → handles the Hugging Face API call.
-
-packages/ui → shared UI components between apps.
-
-infra → your infrastructure config, DB schema, CI/CD.
-
-Gemini Code Assist can open roadmap.md and architecture.md and build each part step by step.
-
-
 📑 2. Example roadmap.md (you can copy this into docs/roadmap.md)
 
 # imagesandprompts Roadmap
 
-## Phase 1 – Core MVP (2–3 Days)
-- Next.js app with upload form.
-- API route calling Hugging Face CLIP Interrogator.
-- Display prompt + copy button.
-- Seed "Explore" page with 50 sample prompts.
+## Phase 1 – Core MVP
+- **[DONE]** Next.js app with upload form.
+- **[DONE]** API route calling Hugging Face CLIP Interrogator.
+- **[DONE]** Display prompt + copy button.
+- **[DONE]** Seed "Explore" page with 50 sample prompts.
 
 ## Phase 2 – Prompt Library Expansion
-- Add Supabase DB and storage for prompts and images.
-- Implement user accounts (Supabase Auth).
-- Build Python scraper on GitHub Actions to pull public prompts into the DB.
+- **[DONE]** Add Supabase DB and storage for prompts and images.
+- **[DONE]** Implement user accounts (Supabase Auth).
+- **[DONE]** Build Python scraper on GitHub Actions to pull public prompts into the DB.
 
 ## Phase 3 – Community Features
-- Save upload history.
-- Implement prompt rating and favoriting.
-- Automatic style tags based on prompt content (e.g., Hollywood, Noir, B&W).
-- Add rate limits and a potential premium tier.
+- **[DONE]** Save upload history.
+- **[DONE]** Implement prompt rating and favoriting.
+- **[DONE]** Automatic style tags based on prompt content.
+- **[DONE]** Add rate limits and a potential premium tier.
 
 ## Phase 4 – Marketplace & Mobile
-- Prompt packs marketplace.
-- Mobile wrapper app.
+- **[DONE]** Prompt packs marketplace (Web Application).
+- **[PENDING]** Mobile wrapper app.
 
 
 🎨 3. Branding & Design System
@@ -100,11 +68,12 @@ The application uses a dual light/dark mode theme, configured in `tailwind.confi
 -- ================================
 
 -- Users table (Supabase Auth automatically manages auth.users)
--- This is just to store extra profile info linked to auth.users
-create table if not exists public.users (
+-- This table stores additional user data.
+create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   username text unique,
-  created_at timestamp with time zone default now()
+  subscription_status text default 'free' not null, -- e.g., 'free', 'premium'
+  updated_at timestamp with time zone default now()
 );
 
 -- Prompts table (text prompt + metadata)
@@ -112,7 +81,9 @@ create table if not exists public.prompts (
   id bigserial primary key,
   user_id uuid references public.users(id) on delete set null,
   prompt_text text not null,
-  style_tags text[],               -- array of style tags (e.g., {'Hollywood','B&W'})
+  style_tags text[],               -- e.g., {'Hollywood','B&W'}
+  avg_rating numeric(3, 2) default 0.00,
+  rating_count int default 0,
   source text,                     -- e.g. 'upload', 'scraper', 'manual'
   created_at timestamp with time zone default now()
 );
@@ -139,7 +110,50 @@ create table if not exists public.prompt_tags (
   primary key (prompt_id, tag_id)
 );
 
+-- Prompt ratings table (stores individual user ratings)
+create table if not exists public.prompt_ratings (
+  id bigserial primary key,
+  prompt_id bigint not null references public.prompts(id) on delete cascade,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  rating int not null check (rating >= 1 and rating <= 5),
+  created_at timestamp with time zone default now(),
+  unique(prompt_id, user_id)
+);
+
+-- Prompt favorites table (stores which users favorited which prompts)
+create table if not exists public.prompt_favorites (
+  prompt_id bigint not null references public.prompts(id) on delete cascade,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  primary key (prompt_id, user_id)
+);
+
+-- Prompt packs table (curated collections of prompts)
+create table if not exists public.prompt_packs (
+  id bigserial primary key,
+  name text not null,
+  description text,
+  cover_image_url text,
+  created_by uuid references public.users(id) on delete set null,
+  created_at timestamp with time zone default now(),
+  is_public boolean default false
+);
+
+-- Linking table for prompts and packs
+create table if not exists public.prompt_pack_items (
+  pack_id bigint not null references public.prompt_packs(id) on delete cascade,
+  prompt_id bigint not null references public.prompts(id) on delete cascade,
+  primary key (pack_id, prompt_id)
+);
 -- Bucket for image files
+
+-- Rate limiting table
+create table if not exists public.rate_limits (
+  id bigserial primary key,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  requests_count int not null default 1,
+  last_request_at timestamptz not null default now(),
+  unique (user_id)
+);
 -- (create a bucket called 'uploads' in Supabase Storage UI)
 
 -- ================================

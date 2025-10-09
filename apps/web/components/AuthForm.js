@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { supabase } from "supabase-client";
 import { GradientButton, DarkButton } from "ui";
 import { LoaderCircle } from "lucide-react";
+import { useAuth } from "context/AuthContext";
 
 export const AuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -10,6 +10,7 @@ export const AuthForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
+  const { supabaseClient: supabase } = useAuth();
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -18,12 +19,12 @@ export const AuthForm = () => {
     setMessage(null);
 
     try {
-      if (isSignUp) {
-        const { error } = await supabase.auth.signUp({ email, password });
+      if (isSignUp) { 
+        const { error } = await supabase.auth.signUp({ email, password }); 
         if (error) throw error;
         setMessage("Check your email for the confirmation link!");
       } else {
-        const { error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({ 
           email,
           password,
         });

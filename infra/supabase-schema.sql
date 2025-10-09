@@ -61,6 +61,24 @@ create table if not exists public.prompt_ratings (
   primary key (user_id, prompt_id)
 );
 
+-- Prompt packs table (curated collections of prompts)
+create table if not exists public.prompt_packs (
+  id bigserial primary key,
+  name text not null,
+  description text,
+  cover_image_url text,
+  created_by uuid references public.users(id) on delete set null,
+  created_at timestamp with time zone default now(),
+  is_public boolean default false
+);
+
+-- Linking table for prompts and packs
+create table if not exists public.prompt_pack_items (
+  pack_id bigint not null references public.prompt_packs(id) on delete cascade,
+  prompt_id bigint not null references public.prompts(id) on delete cascade,
+  primary key (pack_id, prompt_id)
+);
+
 -- Bucket for image files
 -- (create a bucket called 'uploads' in Supabase Storage UI)
 

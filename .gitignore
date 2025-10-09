@@ -34,6 +34,9 @@ yarn-error.log*
 # Node / JS
 dist
 
+# Webpack hot update files
+*.hot-update.json
+*.hot-update.js
 # Python virtual environments
 .venv
 venv/

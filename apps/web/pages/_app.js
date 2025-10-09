@@ -1,13 +1,18 @@
 import "../styles/globals.css";
 import { AuthProvider } from "context/AuthContext";
-import { supabase } from "supabase-client";
+import { createClient } from "supabase-client/supabase";
 import { Layout } from "../components/Layout";
+import { Toaster } from "react-hot-toast";
+
+// Create a single supabase client for the app
+const supabaseClient = createClient();
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider supabaseClient={supabase}>
+    <AuthProvider supabaseClient={supabaseClient}>
       <Layout>
         <Component {...pageProps} />
+        <Toaster />
       </Layout>
     </AuthProvider>
   );

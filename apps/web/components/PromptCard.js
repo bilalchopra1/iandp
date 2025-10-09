@@ -1,62 +1,52 @@
-import { Card } from "ui"; // Assuming a generic Card from our shared UI package
-import { StarIcon } from "@heroicons/react/20/solid";
+import { Card } from "ui";
+import Image from "next/image";
+import { CopyButton } from "./CopyButton";
+import { PromptActions } from "./PromptActions";
+import { StarRating } from "./StarRating";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function PromptCard({ prompt }) {
-  if (!prompt) {
-    return null;
-  }
+export function PromptCard({ prompt, onRating, isHistoryCard = false }) {
+  const getPublicUrl = (storagePath) => {
+    return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${storagePath}`;
+  };
 
   return (
-    <Card className="flex flex-col h-full">
-      <div className="flex-grow p-6">
-        <p className="text-neutral-400 text-sm">
-          Source: {prompt.source || "N/A"}
-        </p>
-        <p className="mt-2 text-neutral-100 leading-relaxed">
+    <Card
+      key={prompt.id}
+      className="flex flex-col relative p-0 transition-all hover:scale-[1.02] hover:shadow-lg"
+    >
+      {isHistoryCard && prompt.images[0]?.storage_path && (
+        <Image
+          src={getPublicUrl(prompt.images[0].storage_path)}
+          alt="Generated prompt image"
+          width={400}
+          height={400}
+          className="w-full h-48 object-cover rounded-t-lg"
+        />
+      )}
+      <div className="flex-grow p-4 flex flex-col justify-between">
+        <p className="text-neutral-700 dark:text-neutral-300 text-left pr-10 mb-2">
           {prompt.prompt_text}
         </p>
-      </div>
-
-      {prompt.style_tags && prompt.style_tags.length > 0 && (
-        <div className="px-6 pt-4 pb-2">
-          <div className="flex flex-wrap gap-2">
+        <div className="flex items-center justify-between">
+          <StarRating
+            promptId={prompt.id}
+            initialRating={prompt.avg_rating}
+            ratingCount={prompt.rating_count}
+            onRate={onRating}
+          />
+        </div>
+        {prompt.style_tags && prompt.style_tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-4">
             {prompt.style_tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-block bg-neutral-800 rounded-full px-3 py-1 text-xs font-semibold text-neutral-300"
-              >
+              <span key={tag} className="px-2 py-1 bg-neutral-200 dark:bg-neutral-700 text-xs rounded-md">
                 {tag}
               </span>
             ))}
           </div>
-        </div>
-      )}
-
-      <div className="p-6 pt-4 border-t border-neutral-800 flex justify-between items-center">
-        <div className="flex items-center">
-          {[0, 1, 2, 3, 4].map((rating) => (
-            <StarIcon
-              key={rating}
-              className={classNames(
-                prompt.avg_rating > rating
-                  ? "text-yellow-400"
-                  : "text-neutral-600",
-                "h-5 w-5 flex-shrink-0"
-              )}
-              aria-hidden="true"
-            />
-          ))}
-        </div>
-        <p className="text-xs text-neutral-500">
-          {prompt.rating_count > 0
-            ? `${prompt.rating_count} review${prompt.rating_count > 1 ? "s" : ""}`
-            : "No reviews yet"}
-        </p>
+        )}
       </div>
+      <CopyButton textToCopy={prompt.prompt_text} />
+      <PromptActions promptId={prompt.id} isInitiallyFavorited={!!prompt.prompt_favorites?.length} />
     </Card>
   );
 }

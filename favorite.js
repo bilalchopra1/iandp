@@ -1,4 +1,4 @@
-import { createPagesServerClient } from "@supabase/ssr";
+import { createServerClient } from "@supabase/ssr";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -6,7 +6,24 @@ export default async function handler(req, res) {
     return res.status(405).end("Method Not Allowed");
   }
 
-  const supabase = createPagesServerClient({ req, res });
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        get(name) {
+          return req.cookies[name];
+        },
+        set(name, value, options) {
+          res.setHeader('Set-Cookie', `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax`);
+        },
+        remove(name) {
+          res.setHeader('Set-Cookie', `${name}=; Path=/; Max-Age=0`);
+        },
+      },
+    }
+  );
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -15,7 +32,7 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const { id: prompt_id } = req.query;
+  const { promptId: prompt_id } = req.body;
   const user_id = user.id;
 
   try {
@@ -27,7 +44,7 @@ export default async function handler(req, res) {
       .eq("prompt_id", prompt_id)
       .single();
 
-    if (selectError && selectError.code !== "PGRST116") throw selectError; // Ignore 'exact one row' error
+    if (selectError && selectError.code !== "PGRST116") throw selectError; // Ignore 'no rows' error
 
     if (existingFavorite) {
       // If it exists, unfavorite it
