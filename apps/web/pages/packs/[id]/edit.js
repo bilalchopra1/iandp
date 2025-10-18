@@ -58,7 +58,7 @@ export default function EditPackPage({ pack, userPrompts, error }) {
       const response = await fetch(`/api/packs/${pack.id}`, { method: "DELETE" });
       if (!response.ok) throw new Error("Failed to delete pack.");
       toast.success("Pack deleted.");
-      router.push("/my-packs");
+      router.push("/packs");
     } catch (err) {
       toast.error(err.message);
       setIsDeleting(false);

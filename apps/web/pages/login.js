@@ -17,16 +17,16 @@ export default function LoginPage() {
   }, [user, router]);
 
   return (
-    <div className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col items-center justify-center p-4 pt-16">
       <div className="text-center mb-8">
         <Image
             src="/logo.svg"
             alt="AI Prompt Finder Logo"
-            width={80}
-            height={80}
+            width={64}
+            height={64}
             className="mx-auto mb-4"
         />
-        <GradientHeading>Welcome Back</GradientHeading>
+        <GradientHeading className="!text-4xl">Welcome Back</GradientHeading>
         <p className="text-neutral-400">Sign in to continue to AI Prompt Finder</p>
       </div>
       <Card className="w-full max-w-sm">

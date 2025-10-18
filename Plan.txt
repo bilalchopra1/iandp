@@ -322,3 +322,241 @@ public.images: Stores path to uploaded image + links to the prompt it produced.
 public.tags + public.prompt_tags: optional for advanced tag filtering.
 
 Indexes: speed up full-text search on prompt_text and tags.
+
+(UPDATED:
+
+Product Specification — Image→Prompt Platform (Web + Android + iOS)
+
+Purpose (one-line):
+Build a cross-platform web app and mobile apps (Android, iOS) that convert images into structured prompts, let users explore/copy existing prompt-image pairs, and aggregate AI-art data from public galleries and social networks.
+
+1. Core Capabilities
+
+Image → Prompt Generation
+
+Upload or paste an image → system generates a structured prompt (NL text, model parameters, negative prompt, seed, AR, etc.).
+
+Support for multiple model output formats:
+
+General Image Prompt (universal description)
+
+Flux AI
+
+Midjourney
+
+Stable Diffusion
+
+Gemini Nano Banana
+
+Seedreams
+
+Free unlimited image→prompt conversions powered via Hugging Face models (huggingface.co APIs).
+
+Prompt Library & Gallery
+
+Search, filter, and preview existing image+prompt pairs.
+
+Copy prompt in one click (auto-formatted per model).
+
+Display metadata: model type, seed, tags, aspect ratio, author/source.
+
+Scraping & Aggregation
+
+Automated pipeline to scrape and ingest image+prompt data from public prompt libraries, AI-art communities, and mainstream social sites.
+
+Store in canonical schema with provenance, deduplication, and tagging.
+
+Periodic scheduling with politeness (robots.txt, rate-limiting).
+
+User Features
+
+Authentication (sign up, login, logout, forgot password, email verification).
+
+Dashboard: history of conversions, saved prompts, gallery uploads.
+
+Free unlimited image→prompt (Hugging Face) + paid plans for premium tools.
+
+Export prompts (CSV/JSON/Clipboard).
+
+Payment integration (Stripe).
+
+Admin & Moderation
+
+Admin dashboard (scraper management, content review, analytics).
+
+Reporting and takedown flow.
+
+Control over free/paid quotas, scraping jobs, and moderation.
+
+2. Supabase Integration (Core Backend)
+
+We will leverage Supabase as the backend infrastructure:
+
+Database: PostgreSQL (store users, prompts, images metadata, scraping sources).
+
+PostgREST: Auto-generated REST API for database operations.
+
+Authentication: Email/password, OAuth (Google, GitHub). JWT-based session handling.
+
+Realtime: Sync user history, saved prompts, and gallery updates live across devices.
+
+Storage: User uploads (images), cached scraped images, thumbnails.
+
+Edge Functions:
+
+Prompt formatting adapters (Midjourney, Stable Diffusion, etc.).
+
+Scraper triggers (kick off scheduled scraping jobs).
+
+Post-processing (deduplication, perceptual hashing, tagging).
+
+This makes the platform scalable, low-latency, and mobile-ready by default.
+
+3. Canonical Data Schema
+
+(Same as before — with Supabase-native Postgres DB schema)
+
+Key tables:
+
+users
+
+prompts
+
+images
+
+scrape_sources
+
+scrape_logs
+
+subscriptions
+
+favorites
+
+history
+
+4. Free & Paid Tiers
+
+Free:
+
+Unlimited Image→Prompt conversions (powered by Hugging Face API).
+
+Access to public gallery.
+
+Save up to X prompts/images.
+
+Pro (Paid):
+
+Unlimited saved prompts.
+
+Batch processing (multi-image upload).
+
+Model-specific advanced parameters (negative prompts, seeds, etc.).
+
+CSV/JSON export.
+
+Commercial license option.
+
+Enterprise:
+
+API access (bulk data for research/enterprise).
+
+Private scraping jobs.
+
+Custom model adapters.
+
+5. Scraping Source List
+
+Planned scraping domains (public content only):
+
+discord.gg/midjourney
+openart.ai
+prompthero.com
+promptbase.com
+krea.ai
+artbreeder.com
+fotor.com
+rundiffusion.com
+getimg.ai
+huggingface.co
+instagram.com
+pinterest.com
+twitter.com
+reddit.com
+facebook.com
+linkedin.com
+deviantart.com
+behance.net
+artstation.com
+lexica.art
+civitai.com
+creator.nightcafe.studio
+midjourney.com
+runwayml.com
+deepai.org
+deepdreamgenerator.com
+stablecog.com
+starryai.com
+app.wombo.art
+prodia.com
+firefly.adobe.com
+labs.openai.com
+visualelectric.com
+picsart.com
+shutterstock.com
+gettyimages.com
+imagineart.ai
+cara.app
+artmo.com
+promphunt.com
+publicprompts.com
+imageprompt.org
+promptomania.com
+ghauseditz.com
+
+6. Pages / UX
+
+Auth: Signup, login, logout, forgot password, verify email.
+
+Home / Landing: showcase generator, gallery preview.
+
+Gallery: explore scraped/generated prompts (filter, search, tags).
+
+Image→Prompt tool: upload image, select model format, copy result.
+
+User Dashboard: history, favorites, settings, billing.
+
+Admin: scraper jobs, moderation queue, analytics.
+
+Billing Pages: free vs paid plans, upgrade, cancel subscription.
+
+7. Tech Stack
+
+Frontend: React (Next.js) + React Native (for iOS/Android).
+
+Backend: Supabase (Postgres + Auth + Storage + Edge Functions).
+
+Scraping: Python (Scrapy + Playwright).
+
+Queue: Supabase Edge Functions (cron jobs) or external (Celery/RQ).
+
+Search: Supabase full-text search OR Meilisearch integration.
+
+Hosting: Supabase + Vercel (web).
+
+Payments: Stripe.
+
+8. MVP Priorities
+
+Supabase setup (DB schema + auth + storage).
+
+Image→Prompt generator (via Hugging Face API).
+
+Prompt formatting adapters (Stable Diffusion + Midjourney first).
+
+Basic gallery (Lexica API + Civitai API integration).
+
+User dashboard + history (Supabase realtime sync).
+
+Free plan + Pro subscription flow (Stripe).
+
+Android/iOS apps with upload + history sync.)

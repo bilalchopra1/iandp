@@ -1,4 +1,4 @@
-import { createServerClient } from "@supabase/ssr";
+import { createPagesServerClient } from "@supabase/ssr";
 import { stripe } from "../../utils/stripe";
 
 export default async function handler(req, res) {
@@ -7,24 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).end("Method Not Allowed");
   }
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    {
-      cookies: {
-        get(name) {
-          return req.cookies[name];
-        },
-        set(name, value, options) {
-          res.setHeader('Set-Cookie', `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax`);
-        },
-        remove(name) {
-          res.setHeader('Set-Cookie', `${name}=; Path=/; Max-Age=0`);
-        },
-      },
-    }
-  );
-
+  const supabase = createPagesServerClient({ req, res });
   const {
     data: { user },
     error: userError,

@@ -30,7 +30,7 @@ export default function CreatePackPage() {
       toast.error(error.message);
     } else {
       toast.success("Prompt pack created successfully!");
-      router.push("/my-packs");
+      router.push("/packs");
     }
   };
 

@@ -1,11 +1,23 @@
 IandP/
 ├─ __pycache__/
 │  └─ app.cpython-311.pyc
+├─ .github/
+│  └─ workflows/
+│     └─ node.js.yml
 ├─ apps/
 │  ├─ scraper/
+│  │  ├─ sources/
+│  │  │  ├─ civitai_scraper.py
+│  │  │  ├─ ghauseditz_scraper.py
+│  │  │  ├─ lexica_scraper.py
+│  │  │  ├─ openart_scraper.py
+│  │  │  ├─ prompthero_scraper.py
+│  │  │  └─ reddit_scraper.py
 │  │  ├─ README.md
+│  │  ├─ requirements.in
 │  │  ├─ requirements.txt
-│  │  └─ scrape.py
+│  │  ├─ scrape.py
+│  │  └─ tag_utils.py
 │  └─ web/
 │     ├─ .next/
 │     │  ├─ cache/
@@ -34,14 +46,11 @@ IandP/
 │     │  │     ├─ client-development-fallback/
 │     │  │     │  ├─ 0.pack.gz
 │     │  │     │  ├─ 1.pack.gz
-│     │  │     │  ├─ 2.pack.gz
 │     │  │     │  ├─ index.pack.gz
 │     │  │     │  └─ index.pack.gz.old
 │     │  │     ├─ edge-server-development/
 │     │  │     │  ├─ 0.pack.gz
 │     │  │     │  ├─ 1.pack.gz
-│     │  │     │  ├─ 2.pack.gz
-│     │  │     │  ├─ 3.pack.gz
 │     │  │     │  ├─ index.pack.gz
 │     │  │     │  └─ index.pack.gz.old
 │     │  │     └─ server-development/
@@ -52,6 +61,7 @@ IandP/
 │     │  │        ├─ 12.pack.gz
 │     │  │        ├─ 13.pack.gz
 │     │  │        ├─ 14.pack.gz
+│     │  │        ├─ 15.pack.gz
 │     │  │        ├─ 2.pack.gz
 │     │  │        ├─ 3.pack.gz
 │     │  │        ├─ 4.pack.gz
@@ -69,20 +79,21 @@ IandP/
 │     │  │  │  ├─ _app.js
 │     │  │  │  ├─ _document.js
 │     │  │  │  ├─ _error.js
-│     │  │  │  └─ index.js
+│     │  │  │  ├─ 404.js
+│     │  │  │  ├─ account.js
+│     │  │  │  ├─ explore.js
+│     │  │  │  ├─ history.js
+│     │  │  │  ├─ index.js
+│     │  │  │  ├─ login.js
+│     │  │  │  ├─ privacy.js
+│     │  │  │  └─ terms.js
 │     │  │  ├─ static/
 │     │  │  │  └─ webpack/
 │     │  │  │     └─ 633457081244afec._.hot-update.json
 │     │  │  ├─ vendor-chunks/
-│     │  │  │  ├─ @supabase.js
 │     │  │  │  ├─ @swc.js
-│     │  │  │  ├─ cookie.js
 │     │  │  │  ├─ lucide-react.js
-│     │  │  │  ├─ next.js
-│     │  │  │  ├─ tr46.js
-│     │  │  │  ├─ webidl-conversions.js
-│     │  │  │  └─ whatwg-url.js
-│     │  │  ├─ _error.js
+│     │  │  │  └─ next.js
 │     │  │  ├─ edge-runtime-webpack.js
 │     │  │  ├─ interception-route-rewrite-manifest.js
 │     │  │  ├─ middleware-build-manifest.js
@@ -99,8 +110,14 @@ IandP/
 │     │  │  │  ├─ pages/
 │     │  │  │  │  ├─ _app.js
 │     │  │  │  │  ├─ _error.js
-│     │  │  │  │  └─ index.js
-│     │  │  │  ├─ _error.js
+│     │  │  │  │  ├─ 404.js
+│     │  │  │  │  ├─ account.js
+│     │  │  │  │  ├─ explore.js
+│     │  │  │  │  ├─ history.js
+│     │  │  │  │  ├─ index.js
+│     │  │  │  │  ├─ login.js
+│     │  │  │  │  ├─ privacy.js
+│     │  │  │  │  └─ terms.js
 │     │  │  │  ├─ main.js
 │     │  │  │  ├─ polyfills.js
 │     │  │  │  ├─ react-refresh.js
@@ -109,9 +126,130 @@ IandP/
 │     │  │  │  ├─ _buildManifest.js
 │     │  │  │  └─ _ssgManifest.js
 │     │  │  └─ webpack/
+│     │  │     ├─ pages/
+│     │  │     │  ├─ _app.270284f21f15ff3f.hot-update.js
+│     │  │     │  ├─ _app.2e408a946e960025.hot-update.js
+│     │  │     │  ├─ _app.2fe9f2e62bc6d15f.hot-update.js
+│     │  │     │  ├─ _app.461d8593ce798835.hot-update.js
+│     │  │     │  ├─ _app.5993fe0523582e0b.hot-update.js
+│     │  │     │  ├─ _app.806c91778382090c.hot-update.js
+│     │  │     │  ├─ _app.8be9c503328bafda.hot-update.js
+│     │  │     │  ├─ _app.963be3f4eb028572.hot-update.js
+│     │  │     │  ├─ _app.9a227b7a6df17a86.hot-update.js
+│     │  │     │  ├─ _app.9c4f925fdf4f2787.hot-update.js
+│     │  │     │  ├─ _app.c7ab22e4a8c2fe8b.hot-update.js
+│     │  │     │  ├─ _app.ea369caa1acf1b2c.hot-update.js
+│     │  │     │  ├─ _error.461d8593ce798835.hot-update.js
+│     │  │     │  ├─ explore.24580c3d4c51a42e.hot-update.js
+│     │  │     │  ├─ history.806c91778382090c.hot-update.js
+│     │  │     │  ├─ history.90cd8bf5a8aabeb8.hot-update.js
+│     │  │     │  ├─ history.c07e72d683fafc08.hot-update.js
+│     │  │     │  ├─ history.cd82325b98e1eaea.hot-update.js
+│     │  │     │  ├─ index.0423d16493e9be06.hot-update.js
+│     │  │     │  ├─ index.139a460713a802b7.hot-update.js
+│     │  │     │  ├─ index.20d7f0aa7fe132b7.hot-update.js
+│     │  │     │  ├─ index.2e408a946e960025.hot-update.js
+│     │  │     │  ├─ index.31087d474ce5d6e5.hot-update.js
+│     │  │     │  ├─ index.40e7868b87355234.hot-update.js
+│     │  │     │  ├─ index.461d8593ce798835.hot-update.js
+│     │  │     │  ├─ index.5404cc145b941ca0.hot-update.js
+│     │  │     │  ├─ index.5993fe0523582e0b.hot-update.js
+│     │  │     │  ├─ index.963be3f4eb028572.hot-update.js
+│     │  │     │  ├─ index.9c4f925fdf4f2787.hot-update.js
+│     │  │     │  ├─ index.adbb3d58140c83b1.hot-update.js
+│     │  │     │  ├─ index.ea369caa1acf1b2c.hot-update.js
+│     │  │     │  └─ privacy.461d8593ce798835.hot-update.js
+│     │  │     ├─ 0423d16493e9be06.webpack.hot-update.json
+│     │  │     ├─ 060de10dae22116a.webpack.hot-update.json
+│     │  │     ├─ 139a460713a802b7.webpack.hot-update.json
+│     │  │     ├─ 20d7f0aa7fe132b7.webpack.hot-update.json
+│     │  │     ├─ 24580c3d4c51a42e.webpack.hot-update.json
+│     │  │     ├─ 270284f21f15ff3f.webpack.hot-update.json
+│     │  │     ├─ 2e408a946e960025.webpack.hot-update.json
+│     │  │     ├─ 2fe9f2e62bc6d15f.webpack.hot-update.json
+│     │  │     ├─ 306be639f1e40ef1.webpack.hot-update.json
+│     │  │     ├─ 31087d474ce5d6e5.webpack.hot-update.json
+│     │  │     ├─ 3a83f72c0c5a79a2.webpack.hot-update.json
+│     │  │     ├─ 40e7868b87355234.webpack.hot-update.json
+│     │  │     ├─ 40e9c4ab8c43d489.webpack.hot-update.json
+│     │  │     ├─ 44b6b066f551ac61.webpack.hot-update.json
+│     │  │     ├─ 461d8593ce798835.webpack.hot-update.json
+│     │  │     ├─ 4fcf5f24ba6cc647.webpack.hot-update.json
+│     │  │     ├─ 5404cc145b941ca0.webpack.hot-update.json
+│     │  │     ├─ 5993fe0523582e0b.webpack.hot-update.json
+│     │  │     ├─ 62221515cb935a9c.webpack.hot-update.json
 │     │  │     ├─ 633457081244afec._.hot-update.json
-│     │  │     ├─ f80525310dfe326d.webpack.hot-update.json
-│     │  │     └─ webpack.f80525310dfe326d.hot-update.js
+│     │  │     ├─ 651cc22d74dfab91.webpack.hot-update.json
+│     │  │     ├─ 66af64f450ed56f8.webpack.hot-update.json
+│     │  │     ├─ 67d5c91ded6c714e.webpack.hot-update.json
+│     │  │     ├─ 6f46df40a7e74369.webpack.hot-update.json
+│     │  │     ├─ 806c91778382090c.webpack.hot-update.json
+│     │  │     ├─ 8450e3fce7f85782.webpack.hot-update.json
+│     │  │     ├─ 890b8bd92d790964.webpack.hot-update.json
+│     │  │     ├─ 8be9c503328bafda.webpack.hot-update.json
+│     │  │     ├─ 90cd8bf5a8aabeb8.webpack.hot-update.json
+│     │  │     ├─ 929dcd6c932b9a7d.webpack.hot-update.json
+│     │  │     ├─ 936fc79c5aa57db2.webpack.hot-update.json
+│     │  │     ├─ 963be3f4eb028572.webpack.hot-update.json
+│     │  │     ├─ 9a227b7a6df17a86.webpack.hot-update.json
+│     │  │     ├─ 9c4f925fdf4f2787.webpack.hot-update.json
+│     │  │     ├─ a5f34b5f64d8869f.webpack.hot-update.json
+│     │  │     ├─ ad98565c2c1b7a96.webpack.hot-update.json
+│     │  │     ├─ adbb3d58140c83b1.webpack.hot-update.json
+│     │  │     ├─ af33a4c0a55c9436.webpack.hot-update.json
+│     │  │     ├─ c07e72d683fafc08.webpack.hot-update.json
+│     │  │     ├─ c7ab22e4a8c2fe8b.webpack.hot-update.json
+│     │  │     ├─ cd82325b98e1eaea.webpack.hot-update.json
+│     │  │     ├─ cfbd95e3a22b228a.webpack.hot-update.json
+│     │  │     ├─ e70d207425ed62e5.webpack.hot-update.json
+│     │  │     ├─ ea369caa1acf1b2c.webpack.hot-update.json
+│     │  │     ├─ f58c4e53938c5394.webpack.hot-update.json
+│     │  │     ├─ fe26aa5a32e8bc43.webpack.hot-update.json
+│     │  │     ├─ webpack.0423d16493e9be06.hot-update.js
+│     │  │     ├─ webpack.060de10dae22116a.hot-update.js
+│     │  │     ├─ webpack.139a460713a802b7.hot-update.js
+│     │  │     ├─ webpack.20d7f0aa7fe132b7.hot-update.js
+│     │  │     ├─ webpack.24580c3d4c51a42e.hot-update.js
+│     │  │     ├─ webpack.270284f21f15ff3f.hot-update.js
+│     │  │     ├─ webpack.2e408a946e960025.hot-update.js
+│     │  │     ├─ webpack.2fe9f2e62bc6d15f.hot-update.js
+│     │  │     ├─ webpack.306be639f1e40ef1.hot-update.js
+│     │  │     ├─ webpack.31087d474ce5d6e5.hot-update.js
+│     │  │     ├─ webpack.3a83f72c0c5a79a2.hot-update.js
+│     │  │     ├─ webpack.40e7868b87355234.hot-update.js
+│     │  │     ├─ webpack.40e9c4ab8c43d489.hot-update.js
+│     │  │     ├─ webpack.44b6b066f551ac61.hot-update.js
+│     │  │     ├─ webpack.461d8593ce798835.hot-update.js
+│     │  │     ├─ webpack.4fcf5f24ba6cc647.hot-update.js
+│     │  │     ├─ webpack.5404cc145b941ca0.hot-update.js
+│     │  │     ├─ webpack.5993fe0523582e0b.hot-update.js
+│     │  │     ├─ webpack.62221515cb935a9c.hot-update.js
+│     │  │     ├─ webpack.651cc22d74dfab91.hot-update.js
+│     │  │     ├─ webpack.66af64f450ed56f8.hot-update.js
+│     │  │     ├─ webpack.67d5c91ded6c714e.hot-update.js
+│     │  │     ├─ webpack.6f46df40a7e74369.hot-update.js
+│     │  │     ├─ webpack.806c91778382090c.hot-update.js
+│     │  │     ├─ webpack.8450e3fce7f85782.hot-update.js
+│     │  │     ├─ webpack.890b8bd92d790964.hot-update.js
+│     │  │     ├─ webpack.8be9c503328bafda.hot-update.js
+│     │  │     ├─ webpack.90cd8bf5a8aabeb8.hot-update.js
+│     │  │     ├─ webpack.929dcd6c932b9a7d.hot-update.js
+│     │  │     ├─ webpack.936fc79c5aa57db2.hot-update.js
+│     │  │     ├─ webpack.963be3f4eb028572.hot-update.js
+│     │  │     ├─ webpack.9a227b7a6df17a86.hot-update.js
+│     │  │     ├─ webpack.9c4f925fdf4f2787.hot-update.js
+│     │  │     ├─ webpack.a5f34b5f64d8869f.hot-update.js
+│     │  │     ├─ webpack.ad98565c2c1b7a96.hot-update.js
+│     │  │     ├─ webpack.adbb3d58140c83b1.hot-update.js
+│     │  │     ├─ webpack.af33a4c0a55c9436.hot-update.js
+│     │  │     ├─ webpack.c07e72d683fafc08.hot-update.js
+│     │  │     ├─ webpack.c7ab22e4a8c2fe8b.hot-update.js
+│     │  │     ├─ webpack.cd82325b98e1eaea.hot-update.js
+│     │  │     ├─ webpack.cfbd95e3a22b228a.hot-update.js
+│     │  │     ├─ webpack.e70d207425ed62e5.hot-update.js
+│     │  │     ├─ webpack.ea369caa1acf1b2c.hot-update.js
+│     │  │     ├─ webpack.f58c4e53938c5394.hot-update.js
+│     │  │     └─ webpack.fe26aa5a32e8bc43.hot-update.js
 │     │  ├─ build-manifest.json
 │     │  ├─ package.json
 │     │  ├─ react-loadable-manifest.json
@@ -119,34 +257,72 @@ IandP/
 │     ├─ components/
 │     │  ├─ AuthForm.js
 │     │  ├─ CopyButton.js
+│     │  ├─ FilterControls.js
+│     │  ├─ Footer.js
 │     │  ├─ Header.js
+│     │  ├─ index.js
 │     │  ├─ Layout.js
+│     │  ├─ MinimalError.js
+│     │  ├─ NavLink.js
+│     │  ├─ PackCard.js
 │     │  ├─ PromptActions.js
-│     │  └─ PromptCard.js
+│     │  ├─ PromptCard.js
+│     │  ├─ SearchBar.js
+│     │  ├─ StarRating.js
+│     │  ├─ ThemeAwareLogo.js
+│     │  └─ ThemeToggle.js
 │     ├─ data/
 │     │  └─ explore.js
+│     ├─ hooks/
+│     │  └─ useDebounce.js
+│     ├─ lib/
 │     ├─ pages/
 │     │  ├─ api/
+│     │  │  ├─ create-checkout-session.js
 │     │  │  ├─ favorite.js
 │     │  │  ├─ generate-prompt.js
-│     │  │  └─ rate-prompt.js
+│     │  │  ├─ get-prompts.js
+│     │  │  ├─ rate-prompt.js
+│     │  │  └─ stripe-webhook.js
+│     │  ├─ packs/
+│     │  │  ├─ [id]/
+│     │  │  │  └─ edit.js
+│     │  │  ├─ [id].js
+│     │  │  └─ index.js
 │     │  ├─ _app.js
+│     │  ├─ _error.js
+│     │  ├─ 404.js
+│     │  ├─ account.js
+│     │  ├─ create-pack.js
 │     │  ├─ explore.js
 │     │  ├─ history.js
 │     │  ├─ index.js
-│     │  └─ login.js
+│     │  ├─ login.js
+│     │  ├─ privacy.js
+│     │  └─ terms.js
 │     ├─ public/
+│     │  ├─ favicon.svg
+│     │  ├─ logo-for-dark-theme.svg
+│     │  ├─ logo-for-light-theme.svg
 │     │  └─ logo.svg
 │     ├─ styles/
 │     │  └─ globals.css
-│     ├─ _app.js
+│     ├─ utils/
+│     │  ├─ stripe-client.js
+│     │  ├─ stripe-server.js
+│     │  └─ stripe.js
 │     ├─ .env.local
+│     ├─ .eslintrc.json
+│     ├─ favorite.js
 │     ├─ jsconfig.json
 │     ├─ middleware.js
+│     ├─ NavLink.js
+│     ├─ next-env.d.ts
 │     ├─ next.config.js
 │     ├─ package.json
 │     ├─ postcss.config.js
-│     └─ tailwind.config.js
+│     ├─ tailwind.config.js
+│     └─ tsconfig.json
 ├─ docs/
 │  ├─ api-spec.md
 │  ├─ architecture.md
@@ -155,7 +331,6 @@ IandP/
 │  ├─ github-actions/
 │  │  └─ scrape.yml
 │  ├─ README.md
-│  ├─ supabase-rate-limit.sql
 │  ├─ supabase-schema.sql
 │  └─ vercel.json
 ├─ packages/
@@ -166,10 +341,11 @@ IandP/
 │  │  ├─ AuthContext.js
 │  │  └─ package.json
 │  ├─ prompt-model/
+│  │  ├─ generate_caption.py
 │  │  ├─ index.js
 │  │  ├─ package.json
 │  │  └─ README.md
-│  ├─ supabase-client/
+│  ├─ tag-generator/
 │  │  ├─ index.js
 │  │  └─ package.json
 │  └─ ui/
@@ -180,16 +356,15 @@ IandP/
 │     ├─ index.js
 │     └─ package.json
 ├─ .dcignore
+├─ .env.example
 ├─ .gitignore
 ├─ .windsurfrules
-├─ civitai_scraper.py
-├─ CLAUDE.md
-├─ favorite.js
-├─ GEMINI.md
+├─ b15155982d1c332e.webpack.hot-update.json
 ├─ generation_tool.md
-├─ lexica_scraper.py
 ├─ package-lock.json
 ├─ package.json
+├─ path_tree.txt
 ├─ Plan.txt
 ├─ README.md
-└─ scraping_list.md
+├─ scraping_list.md
+└─ SETUP_INSTRUCTIONS.md

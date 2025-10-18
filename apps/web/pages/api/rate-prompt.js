@@ -6,23 +6,13 @@ export default async function handler(req, res) {
     return res.status(405).end("Method Not Allowed");
   }
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    {
-      cookies: {
-        get(name) {
-          return req.cookies[name];
-        },
-        set(name, value, options) {
-          res.setHeader('Set-Cookie', `${name}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax`);
-        },
-        remove(name) {
-          res.setHeader('Set-Cookie', `${name}=; Path=/; Max-Age=0`);
-        },
-      },
-    }
-  );
+  const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY, {
+    cookies: {
+      get: (name) => req.cookies[name],
+      set: (name, value, options) => res.setHeader('Set-Cookie', `${name}=${value}; Path=${options.path}; Max-Age=${options.maxAge}; HttpOnly=${options.httpOnly}; Secure=${options.secure}; SameSite=${options.sameSite}`),
+      remove: (name, options) => res.setHeader('Set-Cookie', `${name}=; Path=${options.path}; Max-Age=0; HttpOnly=${options.httpOnly}; Secure=${options.secure}; SameSite=${options.sameSite}`),
+    },
+  });
 
   const {
     data: { user },

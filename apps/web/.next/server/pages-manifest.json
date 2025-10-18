@@ -2,8 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/history": "pages/history.js",
-  "/account": "pages/account.js",
   "/": "pages/index.js",
   "/api/generate-prompt": "pages/api/generate-prompt.js"
 }

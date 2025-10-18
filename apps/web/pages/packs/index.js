@@ -1,10 +1,12 @@
 import { createServerClient, serialize } from "@supabase/ssr";
-import { Card, GradientHeading, DarkButton } from "ui";
+import { Card, GradientHeading, DarkButton, GradientButton } from "ui";
 import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "context/AuthContext";
 
 export default function PacksPage({ publicPacks, myPacks, error }) {
   const [filter, setFilter] = useState("public"); // 'public' or 'my'
+  const { user } = useAuth();
 
   if (error) {
     return <p className="text-red-500 p-8">{error}</p>;
@@ -62,6 +64,11 @@ export default function PacksPage({ publicPacks, myPacks, error }) {
           >
             My Packs
           </DarkButton>
+          {user && filter === 'my' && (
+            <Link href="/create-pack" passHref>
+              <GradientButton>Create New Pack</GradientButton>
+            </Link>
+          )}
         </div>
       </div>
       

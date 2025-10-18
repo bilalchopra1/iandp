@@ -1,0 +1,11 @@
+# requirements.in
+python-dotenv
+requests
+beautifulsoup4
+transformers
+torch
+fastapi
+uvicorn
+pydantic-settings
+supabase
+# Add other direct dependencies here

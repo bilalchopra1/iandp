@@ -4,49 +4,60 @@ import { CopyButton } from "./CopyButton";
 import { PromptActions } from "./PromptActions";
 import { StarRating } from "./StarRating";
 
-export function PromptCard({ prompt, onRating, isHistoryCard = false }) {
+export function PromptCard({ prompt, isHistoryCard = false }) {
   const getPublicUrl = (storagePath) => {
     return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${storagePath}`;
   };
 
+  const imageUrl = isHistoryCard
+    ? (prompt.images && prompt.images[0]?.storage_path ? getPublicUrl(prompt.images[0].storage_path) : null)
+    : prompt.image_url;
+
   return (
     <Card
       key={prompt.id}
-      className="flex flex-col relative p-0 transition-all hover:scale-[1.02] hover:shadow-lg"
+      className="flex flex-col relative p-0 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/10 hover:-translate-y-1 group"
     >
-      {isHistoryCard && prompt.images[0]?.storage_path && (
-        <Image
-          src={getPublicUrl(prompt.images[0].storage_path)}
-          alt="Generated prompt image"
-          width={400}
-          height={400}
-          className="w-full h-48 object-cover rounded-t-lg"
-        />
+      {imageUrl && (
+        <div className="relative w-full aspect-square overflow-hidden rounded-t-lg">
+          <Image
+            src={imageUrl}
+            alt={prompt.prompt_text.substring(0, 50)}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
       )}
       <div className="flex-grow p-4 flex flex-col justify-between">
-        <p className="text-neutral-700 dark:text-neutral-300 text-left pr-10 mb-2">
-          {prompt.prompt_text}
-        </p>
-        <div className="flex items-center justify-between">
+        <div>
+          <p className="text-neutral-600 dark:text-neutral-300 text-left text-sm leading-relaxed mb-3 h-20 overflow-hidden">
+            {prompt.prompt_text}
+          </p>
+          {prompt.style_tags && prompt.style_tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {prompt.style_tags.slice(0, 3).map((tag) => (
+                <span key={tag} className="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 text-xs text-neutral-600 dark:text-neutral-400 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="flex items-center justify-between pt-2 border-t border-neutral-200 dark:border-neutral-800">
           <StarRating
             promptId={prompt.id}
             initialRating={prompt.avg_rating}
             ratingCount={prompt.rating_count}
-            onRate={onRating}
+          />
+          <PromptActions
+            promptId={prompt.id}
+            isInitiallyFavorited={!!prompt.prompt_favorites?.length}
+            as="button"
           />
         </div>
-        {prompt.style_tags && prompt.style_tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-4">
-            {prompt.style_tags.map((tag) => (
-              <span key={tag} className="px-2 py-1 bg-neutral-200 dark:bg-neutral-700 text-xs rounded-md">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
       </div>
       <CopyButton textToCopy={prompt.prompt_text} />
-      <PromptActions promptId={prompt.id} isInitiallyFavorited={!!prompt.prompt_favorites?.length} />
     </Card>
   );
 }

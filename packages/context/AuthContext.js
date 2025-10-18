@@ -1,39 +1,57 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { createClient } from "supabase-client/supabase";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext({
   user: null,
   session: null,
-  supabaseClient: createClient(),
+  supabaseClient: null,
+  isLoading: true,
 });
 
-export const AuthProvider = ({ supabaseClient, children }) => {
+export const AuthProvider = ({ children, supabaseClient }) => {
   const [user, setUser] = useState(null);
   const [session, setSession] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUserAndSession = async () => {
-      const { data: { user } } = await supabaseClient.auth.getUser();
-      setUser(user ?? null);
-      const { data: { session } } = await supabaseClient.auth.getSession();
-      setSession(session ?? null);
-    };
-
-    fetchUserAndSession();
-
-    const { data: { subscription } } = supabaseClient.auth.onAuthStateChange(
-      async (event, session) => {
-        const { data: { user } } = await supabaseClient.auth.getUser();
-        setUser(user ?? null);
+    if (supabaseClient) {
+      const {
+        data: { subscription },
+      } = supabaseClient.auth.onAuthStateChange((_event, session) => {
         setSession(session);
-      }
-    );
+        setUser(session?.user ?? null);
+        setIsLoading(false);
+      });
 
-    return () => subscription.unsubscribe();
+      // Set initial state
+      (async () => {
+        const {
+          data: { session },
+        } = await supabaseClient.auth.getSession();
+        setSession(session);
+        setUser(session?.user ?? null);
+        setIsLoading(false);
+      })();
+
+      return () => {
+        subscription?.unsubscribe();
+      };
+    }
   }, [supabaseClient]);
 
-  const value = { user, session, supabaseClient };
+  const value = {
+    user,
+    session,
+    supabaseClient,
+    isLoading,
+  };
+
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};

@@ -1,10 +1,30 @@
-import { createServerClient, serialize } from "@supabase/ssr";
+import { createServerClient } from "@supabase/ssr";
 import { useAuth } from "context/AuthContext";
-import { Card, GradientHeading, DarkButton } from "ui";
+import { Card, GradientHeading, DarkButton, GradientButton } from "ui";
+import { useState } from "react";
+import { getStripe } from "../utils/stripe-client";
+import { LoaderCircle } from "lucide-react";
 
-export default function AccountPage() {
+export default function AccountPage({ profile }) {
   const { user, supabaseClient } = useAuth();
+  const [loading, setLoading] = useState(false);
 
+  const handleCheckout = async (priceId) => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceId }),
+      });
+      const { sessionId } = await response.json();
+      const stripe = await getStripe();
+      await stripe.redirectToCheckout({ sessionId });
+    } catch (error) {
+      console.error("Checkout error:", error);
+    }
+    setLoading(false);
+  };
   if (!user) {
     return null; // Or a loading spinner
   }
@@ -15,20 +35,40 @@ export default function AccountPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <GradientHeading className="mb-8">My Account</GradientHeading>
-      <Card>
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-lg font-semibold text-neutral-300">User Details</h3>
-            <div className="mt-2 space-y-2 text-neutral-400">
-              <p><span className="font-semibold text-neutral-300">User ID:</span> {user.id}</p>
-              <p><span className="font-semibold text-neutral-300">Email:</span> {user.email}</p>
-              <p><span className="font-semibold text-neutral-300">Account Created:</span> {formatDate(user.created_at)}</p>
-              <p><span className="font-semibold text-neutral-300">Last Signed In:</span> {formatDate(user.last_sign_in_at)}</p>
-            </div>
+    <div className="flex flex-col items-center justify-center pt-8">
+      <GradientHeading className="mb-8 text-center">My Account</GradientHeading>
+      <div className="space-y-8">
+        <Card>
+          <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Subscription</h3>
+          <div className="flex items-center justify-between p-4 bg-neutral-100 dark:bg-neutral-900 rounded-lg">
+            <p className="text-neutral-600 dark:text-neutral-400">
+              Your current plan: <span className="font-semibold text-neutral-800 dark:text-white capitalize">{profile?.subscription_status || 'Free'}</span>
+            </p>
+            {profile?.subscription_status === 'free' ? (
+              <GradientButton
+                onClick={() => handleCheckout(process.env.NEXT_PUBLIC_STRIPE_PRICE_ID)}
+                disabled={loading}
+              >
+                {loading ? <LoaderCircle className="animate-spin" /> : 'Upgrade to Pro'}
+              </GradientButton>
+            ) : (
+              <DarkButton disabled={true}>
+                Manage Billing
+              </DarkButton>
+            )}
           </div>
-          <div className="border-t border-neutral-700 pt-4">
+          <div className="mt-4 text-sm text-neutral-600 dark:text-neutral-500">
+            <p>Upgrade to Pro for unlimited prompt generations, access to exclusive features, and more.</p>
+          </div>
+        </Card>
+        <Card>
+          <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-200 mb-4">User Details</h3>
+          <div className="space-y-3 text-neutral-600 dark:text-neutral-400">
+            <p><span className="font-semibold text-neutral-700 dark:text-neutral-300 w-32 inline-block">Email:</span> {user.email}</p>
+            <p><span className="font-semibold text-neutral-700 dark:text-neutral-300 w-32 inline-block">Account Created:</span> {formatDate(user.created_at)}</p>
+            <p><span className="font-semibold text-neutral-700 dark:text-neutral-300 w-32 inline-block">User ID:</span> <span className="text-xs font-mono">{user.id}</span></p>
+          </div>
+          <div className="mt-6 border-t border-neutral-200 dark:border-neutral-800 pt-4">
             <DarkButton
               onClick={async () => {
                 try {
@@ -37,7 +77,6 @@ export default function AccountPage() {
                     console.error('Logout error:', error);
                     return;
                   }
-                  // Redirect will be handled by AuthContext
                 } catch (error) {
                   console.error('Logout error:', error);
                 }
@@ -47,8 +86,8 @@ export default function AccountPage() {
               Sign Out
             </DarkButton>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
     </div>
   );
 }
@@ -59,20 +98,12 @@ export const getServerSideProps = async (ctx) => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       cookies: {
-        get: (name) => {
-          return ctx.req.cookies[name];
-        },
+        get: (name) => ctx.req.cookies[name],
         set: (name, value, options) => {
-          const cookie = serialize(name, value, options);
-          let header = ctx.res.getHeader('Set-Cookie') || [];
-          if (!Array.isArray(header)) header = [String(header)];
-          ctx.res.setHeader('Set-Cookie', [...header, cookie]);
+          ctx.res.setHeader('Set-Cookie', `${name}=${value}; Path=/; HttpOnly; SameSite=Lax`);
         },
         remove: (name, options) => {
-          const cookie = serialize(name, '', { ...options, maxAge: -1 });
-          let header = ctx.res.getHeader('Set-Cookie') || [];
-          if (!Array.isArray(header)) header = [String(header)];
-          ctx.res.setHeader('Set-Cookie', [...header, cookie]);
+          ctx.res.setHeader('Set-Cookie', `${name}=; Path=/; HttpOnly; Max-Age=0; SameSite=Lax`);
         },
       },
     }
@@ -85,5 +116,16 @@ export const getServerSideProps = async (ctx) => {
     return { redirect: { destination: "/login", permanent: false } };
   }
 
-  return { props: {} };
+  // Fetch user profile to get subscription status
+  const { data: profile, error } = await supabase
+    .from('profiles')
+    .select('subscription_status')
+    .eq('id', user.id)
+    .single();
+
+  if (error) {
+    console.error("Error fetching user profile for account page:", error);
+  }
+
+  return { props: { profile: profile || { subscription_status: 'free' } } };
 };

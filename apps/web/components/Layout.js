@@ -1,16 +1,14 @@
 import { Header } from "./Header";
-import { useRouter } from "next/router";
+import { Footer } from "./Footer";
 
 export const Layout = ({ children }) => {
-  const router = useRouter();
-  const noHeaderRoutes = ["/login"];
-
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-200">
-      {!noHeaderRoutes.includes(router.pathname) && <Header />}
-      <main className="p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-800 dark:text-neutral-200 flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
         {children}
       </main>
+      <Footer />
     </div>
   );
 };

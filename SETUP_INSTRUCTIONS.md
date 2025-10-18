@@ -1,40 +1,23 @@
 # Setup Instructions for Images and Prompts Project
 
-## Environment Setup
+This document provides a quick guide to setting up the project. For more detailed instructions, please see the main [README.md](../README.md).
 
-1. Copy the environment template:
-```bash
-cp apps/web/.env.example apps/web/.env.local
-```
+## 1. Environment Variables
 
-2. Fill in your actual values in `apps/web/.env.local`
+- Copy `apps/web/.env.example` to `apps/web/.env.local`.
+- Fill in your Supabase URL and Anon Key.
 
-## Supabase Storage Setup
+## 2. Supabase Setup
 
-The application requires a Supabase storage bucket named "uploads". Here's how to create it:
+- **Create Storage Bucket:** In your Supabase project dashboard, create a public storage bucket named `uploads`.
+- **Run Database Schema:** Copy the entire content of `infra/supabase-schema.sql` and run it in the Supabase SQL Editor. This will create all tables, functions, and security policies.
 
-### Option 1: Using Supabase Dashboard
-1. Go to your Supabase project dashboard
-2. Navigate to Storage → Create Bucket
-3. Name: `uploads`
-4. Set to public if you want public access, or private for user-only access
-5. Create the bucket
+## 3. Install Dependencies
 
-### Option 2: Using SQL (run in Supabase SQL editor)
-```sql
--- Create the storage bucket
-INSERT INTO storage.buckets (id, name, public)
-VALUES ('uploads', 'uploads', true);
+- **Node.js:** From the project root, run `npm install`.
+- **Python:** Create and activate a virtual environment, then run `pip install -r apps/scraper/requirements.txt`.
 
--- Set up proper RLS policies if needed
-CREATE POLICY "Users can upload their own files" ON storage.objects
-FOR INSERT TO authenticated
-WITH CHECK (bucket_id = 'uploads' AND owner = auth.uid());
-
-CREATE POLICY "Users can view their own files" ON storage.objects
-FOR SELECT TO authenticated
-USING (bucket_id = 'uploads' AND owner = auth.uid());
-```
+````
 
 ## Database Schema
 
@@ -45,9 +28,10 @@ The database schema is already defined in `infra/supabase-schema.sql`. Run this 
 1. Install dependencies:
 ```bash
 npm install
-```
+````
 
 2. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -57,6 +41,7 @@ npm run dev
 ## Troubleshooting
 
 If you still get "Bucket not found" errors:
+
 - Make sure the bucket name is exactly "uploads" (case-sensitive)
 - Verify your Supabase project has storage enabled
 - Check that your environment variables are correctly set

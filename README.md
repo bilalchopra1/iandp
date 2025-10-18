@@ -1,95 +1,93 @@
-# images&prompts
+# Images & Prompts
 
-**images&prompts** is a full-stack, community-driven platform for discovering, sharing, and managing AI art prompts. It features a Next.js frontend, a Supabase backend, and a complete monetization flow with Stripe.
-
-This monorepo contains the frontend, backend services, and shared packages for the application.
-
-## Features
-
-- **AI-Powered Prompt Generation**: Upload an image to automatically generate a descriptive text prompt. Features a robust fallback mechanism that analyzes image characteristics (file type, size) to provide intelligent prompt suggestions when the primary AI models are unavailable.
-- **Community Prompt Library**: Explore a vast library of prompts populated by a Python scraper and user submissions.
-- **Advanced Discovery**: Full-text search, filtering by style tags, and sorting by newest or top-rated.
-- **User Accounts & History**: Sign up and get a personal history of all your generated prompts.
-- **Community Interaction**: Rate and favorite prompts to help surface the best content.
-- **Prompt Packs Marketplace**: Browse curated "Prompt Packs" or create, manage, and publish your own.
-- **Subscription Tiers**: A complete Stripe integration for a premium subscription tier with higher API rate limits.
+Welcome to **Images & Prompts**, a full-stack application designed to reverse-engineer AI-generated images to reveal the prompts used to create them. The project features a Next.js frontend that calls a local AI model via an API route, and uses Supabase for the database, authentication, and storage.
 
 ## Tech Stack
 
-- **Frontend**: Next.js, React, Tailwind CSS
-- **Backend**: Supabase (PostgreSQL, Auth, Storage), Vercel Edge Middleware
-- **Scraper**: Python (BeautifulSoup, Requests)
-- **Monetization**: Stripe
-- **AI**: Hugging Face (for prompt generation)
-- **Deployment**: Vercel (Web), GitHub Actions (Scraper)
+- **Monorepo:** Managed with npm workspaces.
+- **Frontend (`apps/web`):**
+  - Framework: **Next.js** (Pages Router)
+  - Authentication: **@supabase/ssr** for server-side and client-side auth.
+  - Styling: **Tailwind CSS**
+  - Theming: **next-themes** for light/dark mode support.
+- **Backend & AI:**
+  - **API:** Next.js API Routes (`apps/web/pages/api`).
+  - **AI Model (`packages/prompt-model`):** A local **Salesforce BLIP** model wrapped in a Python script, executed from the Next.js API.
+  - **Database & Auth:** **Supabase** (PostgreSQL, Authentication, Storage).
+- **Scraper (`apps/scraper`):**
+  - A standalone **Python** application for scraping public prompt libraries.
+- **Deployment:** Configured for **Vercel** (`vercel.json`) and **GitHub Actions** for CI/CD.
 
-## Monorepo Structure
-
-The repository is a monorepo managed with npm workspaces.
-
-```
-iandp/
-├── apps/
-│   ├── web/         # Next.js frontend (Vercel)
-│   └── scraper/     # Python scraper (GitHub Actions)
-│
-├── packages/
-│   ├── ui/            # Shared React components
-│   ├── context/       # Auth context
-│   ├── tag-generator/ # Shared tag generation logic
-│   └── supabase-client/ # Shared Supabase client
-│
-├── infra/
-│   ├── supabase-schema.sql
-│   ├── supabase-profiles.sql
-│   └── supabase-rate-limit.sql
-│
-├── .gitignore
-├── package.json     # Root workspace config
-└── README.md
-```
-
-## How It Works
-
-*   **`apps/web`**: The main user-facing Next.js site where users can upload an image to get a prompt or explore the prompt library.
-*   **`apps/scraper`**: A Python script that runs on a schedule (e.g., via GitHub Actions) to crawl public sources for AI prompts and populate the Supabase database.
-*   **`packages/ui`**: A shared library of React components used across the web application to maintain a consistent design system.
-*   **`infra`**: Contains all the SQL scripts for setting up the Supabase database schema, tables, and functions.
-
-## Environment Variables
-
-To run the project locally, create a `.env.local` file in the `apps/web` directory and a `.env` file in the `apps/scraper` directory.
-
-```bash
-# apps/web/.env.local
-
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL="YOUR_SUPABASE_URL"
-NEXT_PUBLIC_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
-SUPABASE_SERVICE_KEY="YOUR_SUPABASE_SERVICE_KEY" # For admin tasks like the Stripe webhook
-
-# Stripe
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="YOUR_STRIPE_PUBLISHABLE_KEY"
-STRIPE_SECRET_KEY="YOUR_STRIPE_SECRET_KEY"
-STRIPE_WEBHOOK_SIGNING_SECRET="YOUR_STRIPE_WEBHOOK_SECRET"
-NEXT_PUBLIC_STRIPE_PRICE_ID="YOUR_STRIPE_PRICE_ID" # e.g., price_...
-
-# Site URL
-NEXT_PUBLIC_SITE_URL="http://localhost:3000"
-```
-
-You can find these keys in your Supabase project's "Project Settings" > "API" section.
+---
 
 ## Getting Started
 
-1. Install dependencies from the root directory:
-   ```bash
-   npm install
-   ```
+### Prerequisites
 
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
+- Node.js (v18 or later)
+- Python (v3.11 or later)
+- `npm` for Node.js package management
+- `pip` and `venv` for Python package management
 
-The web application will be available at `http://localhost:3000`.
+### Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <your-repository-url>
+    cd IandP
+    ```
+
+2.  **Set up Environment Variables:**
+
+    - In the `apps/web` directory, copy `.env.example` to a new file named `.env.local`.
+
+    ```bash
+    cp apps/web/.env.example apps/web/.env.local
+    ```
+
+    - Fill in your Supabase URL and Anon Key in `apps/web/.env.local`.
+
+3.  **Install Frontend Dependencies:**
+    From the project root, run:
+
+    ```bash
+    npm install
+    ```
+
+4.  **Install AI Model & Scraper Dependencies:**
+
+    - Create and activate a Python virtual environment:
+      ```bash
+      python -m venv .venv
+      source .venv/bin/activate  # On Windows, use: .\\.venv\\Scripts\\activate
+      ```
+    - Install the required packages for the scraper:
+      ```bash
+      pip install -r apps/scraper/requirements.txt
+      ```
+
+5.  **Set up Supabase:**
+    - In your Supabase project, create a storage bucket named `uploads`.
+    - Run the SQL code from `infra/supabase-schema.sql` in the Supabase SQL Editor to create all necessary tables, functions, and policies.
+
+### Running the Application
+
+1.  **Start the Web Application:**
+    From the project root:
+    ```bash
+    npm run dev
+    ```
+    The web application will be available at `http://localhost:3000`.
+
+---
+
+## Project Structure
+
+- **`apps/web`**: The main Next.js frontend application, including all pages, API routes, and components.
+- **`apps/scraper`**: A standalone Python application responsible for scraping public prompt data. All scraper source scripts are located in `apps/scraper/sources/`.
+- **`packages/ui`**: A shared library of reusable React UI components (e.g., `Card`, `GradientButton`) to ensure a consistent design system.
+- **`packages/prompt-model`**: The core AI logic. Contains a Python script for image-to-text generation and a JavaScript wrapper to call it from the Next.js backend.
+- **`packages/context`**: Contains the `AuthContext` for managing user authentication state across the web app.
+- **`infra/`**: Contains all infrastructure-as-code. `supabase-schema.sql` is the single source of truth for the database, and `vercel.json` configures deployment.
+- **`docs/`**: Project planning and architecture documents, including the `roadmap.md`.
